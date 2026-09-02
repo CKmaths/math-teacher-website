@@ -1,180 +1,1079 @@
-/* =========================
-   EXERCISE GENERATOR
-========================= */
-.generator-card {
-    max-width: 950px;
-margin: auto;
-padding: 35px;
-background: white;
-border-radius: 20px;
-box-shadow:
-        0 10px 35px rgba(0,0,0,0.08);
+/* =====================================================
+   MATH TEACHER WEBSITE
+   VERSION 2.3
+   STABLE CSS
+===================================================== */
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-/* Settings */
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        Arial,
+        "Noto Sans Khmer",
+        "Khmer OS",
+        sans-serif;
+
+    line-height: 1.6;
+    background: #ffffff;
+    color: #1f2937;
+}
+
+
+/* ================= GLOBAL ================= */
+
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+.section {
+    padding: 80px 0;
+}
+
+
+.section-light {
+    background: #f7f9fc;
+}
+
+
+.section-heading {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 45px;
+}
+
+
+.section-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+
+.section-heading h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 12px;
+}
+
+
+.section-heading p {
+    color: #64748b;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e5e7eb;
+    backdrop-filter: blur(10px);
+}
+
+
+.nav-container {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    transition: 0.2s ease;
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+    color: #111827;
+}
+
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.icon-button,
+.menu-button {
+    border: 1px solid #dbe1e8;
+    background: #ffffff;
+    border-radius: 8px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 10px;
+}
+
+
+.menu-button {
+    display: none;
+    font-size: 20px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 620px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #ffffff 55%,
+            #eef2ff 100%
+        );
+}
+
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 70px;
+}
+
+
+.badge {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #4338ca;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin-bottom: 22px;
+}
+
+
+.hero h1 span {
+    color: #4f46e5;
+}
+
+
+.hero-text > p {
+    max-width: 650px;
+    color: #64748b;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+
+.primary-button,
+.secondary-button,
+.outline-button,
+.small-button {
+    border-radius: 9px;
+    border: 1px solid transparent;
+    padding: 11px 18px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+
+.primary-button {
+    background: #111827;
+    color: #ffffff;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
+}
+
+
+.secondary-button {
+    background: #ffffff;
+    color: #111827;
+    border-color: #dbe1e8;
+}
+
+
+.secondary-button:hover,
+.outline-button:hover {
+    background: #f1f5f9;
+}
+
+
+.hero-card {
+    min-height: 330px;
+    border: 1px solid #e2e8f0;
+    border-radius: 28px;
+    background: #ffffff;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+.math-symbol {
+    font-size: 80px;
+    font-weight: 800;
+}
+
+
+.math-formula {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* ================= GRADES ================= */
+
+.grade-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+
+.grade-card {
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    transition: 0.2s ease;
+}
+
+
+.grade-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+.grade-number {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #111827;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+
+.grade-card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+
+.grade-card p {
+    color: #64748b;
+    font-size: 14px;
+    min-height: 45px;
+    margin-bottom: 18px;
+}
+
+
+.outline-button {
+    background: #ffffff;
+    color: #111827;
+    border-color: #cbd5e1;
+}
+
+
+/* =====================================================
+   EXERCISE GENERATOR
+===================================================== */
+
+.generator-card {
+    width: min(850px, 100%);
+    margin: 0 auto;
+
+    padding: 35px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+}
+
+
+/* SETTINGS */
+
 .generator-settings {
     display: grid;
-grid-template-columns:
-        1fr 1fr auto;
-gap: 15px;
-align-items: end;
-margin-bottom: 35px;
-padding-bottom: 25px;
-border-bottom: 1px solid #e2e8f0;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
 }
+
+
 .setting-group {
     display: flex;
-flex-direction: column;
-gap: 7px;
+    flex-direction: column;
+    gap: 8px;
 }
+
+
 .setting-group label,
-.answer-input label {
+.answer-area label {
     font-size: 14px;
-font-weight: 700;
+    font-weight: 700;
 }
-.setting-group select,
-.answer-input input {
+
+
+.setting-group select {
     width: 100%;
-padding: 12px 14px;
-border: 1px solid #cbd5e1;
-border-radius: 8px;
-background: white;
-font-size: 15px;
-outline: none;
+    min-height: 46px;
+    padding: 0 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #1f2937;
+
+    outline: none;
 }
+
+
 .setting-group select:focus,
-.answer-input input:focus {
-    border-color: #2563eb;
+.answer-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
-/* Question */
+
+
+/* QUESTION */
+
 .question-area {
+    min-height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
     text-align: center;
 }
-.question-number {
-    display: inline-block;
-padding: 5px 12px;
-border-radius: 20px;
-background: #dbeafe;
-color: #2563eb;
-font-size: 12px;
-font-weight: 700;
+
+
+.question-top {
+    width: 100%;
+    text-align: left;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 700;
 }
-.question-area h3 {
-    margin: 15px 0;
-}
+
+
 .generated-question {
-    min-height: 100px;
-display: flex;
-align-items: center;
-    justify-content: center;
-margin: 20px 0;
-padding: 25px;
-border-radius: 12px;
-background: #f8fafc;
-font-size: 30px;
-font-weight: 800;
+    margin-top: 25px;
+
+    font-size: clamp(30px, 6vw, 48px);
+    font-weight: 800;
+
+    letter-spacing: 1px;
 }
-/* Hint */
-.small-button {
-    padding: 8px 14px;
-border: 1px solid #f59e0b;
-border-radius: 7px;
-background: white;
-color: #b45309;
-cursor: pointer;
-}
+
+
 .hint {
-    margin-top: 12px;
-color: #b45309;
-font-weight: 600;
+    margin-top: 20px;
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    background: #fef3c7;
+    color: #92400e;
+
+    font-size: 14px;
 }
-/* Answer */
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ACTIONS */
+
+.generator-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.small-button {
+    background: #ffffff;
+    color: #111827;
+    border-color: #cbd5e1;
+}
+
+
+.small-button:hover {
+    background: #f1f5f9;
+}
+
+
+/* ANSWER */
+
+.answer-area {
+    margin-top: 25px;
+}
+
+
 .answer-input {
-    max-width: 350px;
-margin: 25px auto;
-text-align: left;
+    width: 100%;
+    height: 50px;
+
+    margin-top: 8px;
+    padding: 0 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    outline: none;
 }
+
+
 .answer-buttons {
     display: flex;
-justify-content: center;
-gap: 12px;
-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
 }
-/* Feedback */
+
+
+/* FEEDBACK */
+
 .feedback {
-    min-height: 30px;
-margin-top: 20px;
-font-size: 18px;
-font-weight: 700;
+    margin-top: 20px;
+    padding: 15px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
 }
+
+
 .feedback.correct {
-    color: #16a34a;
+    background: #dcfce7;
+    color: #166534;
 }
+
+
 .feedback.incorrect {
-    color: #dc2626;
+    background: #fee2e2;
+    color: #991b1b;
 }
-/* Score */
+
+
+/* SCORE BOARD */
+
 .score-board {
     display: grid;
-grid-template-columns:
-        repeat(3, 1fr);
-gap: 15px;
-margin-top: 35px;
-padding-top: 25px;
-border-top: 1px solid #e2e8f0;
-text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    margin-top: 28px;
 }
-.score-board div {
+
+
+.score-item {
+    padding: 18px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    background: #ffffff;
+
     display: flex;
-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
-.score-board strong {
-    font-size: 28px;
-color: #2563eb;
+
+
+.score-icon {
+    font-size: 22px;
 }
-.score-board span {
+
+
+.score-label {
     color: #64748b;
-font-size: 13px;
+    font-size: 13px;
 }
-/* Dark Mode */
-body.dark .generator-card {
+
+
+.score-item strong {
+    font-size: 25px;
+}
+
+
+/* ================= WORKSHEETS ================= */
+
+.worksheet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+.worksheet-card {
+    padding: 30px;
+
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+
+.worksheet-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+
+.worksheet-card h3 {
+    margin-bottom: 8px;
+}
+
+
+.worksheet-card p {
+    color: #64748b;
+    margin-bottom: 18px;
+}
+
+
+/* ================= CALCULATOR ================= */
+
+.calculator {
+    width: min(360px, 100%);
+    margin: auto;
+
+    padding: 20px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.08);
+}
+
+
+.calculator-display {
+    width: 100%;
+    height: 65px;
+
+    padding: 10px 15px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    text-align: right;
+    font-size: 25px;
+}
+
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+}
+
+
+.calculator-buttons button {
+    height: 55px;
+
+    border: 1px solid #dbe1e8;
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.calculator-buttons button:hover {
+    background: #e2e8f0;
+}
+
+
+.calculator-equals {
+    grid-column: span 4;
+}
+
+
+/* ================= ABOUT ================= */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    align-items: center;
+    gap: 60px;
+}
+
+
+.about h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 18px;
+}
+
+
+.about p {
+    color: #64748b;
+}
+
+
+.about-card {
+    min-height: 280px;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.about-symbol {
+    font-size: 80px;
+    font-weight: 800;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    padding: 30px 0;
+
+    background: #111827;
+    color: #cbd5e1;
+
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+
+body.dark-mode .header {
+    background: rgba(15, 23, 42, 0.96);
+    border-color: #1e293b;
+}
+
+
+body.dark-mode .logo-icon {
+    background: #ffffff;
+    color: #111827;
+}
+
+
+body.dark-mode .nav-link {
+    color: #cbd5e1;
+}
+
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    color: #ffffff;
+}
+
+
+body.dark-mode .icon-button,
+body.dark-mode .menu-button,
+body.dark-mode .secondary-button,
+body.dark-mode .outline-button,
+body.dark-mode .small-button {
     background: #1e293b;
-}
-body.dark .generator-settings,
-body.dark .score-board {
+    color: #ffffff;
     border-color: #334155;
 }
-body.dark .setting-group select,
-body.dark .answer-input input {
-    background: #0f172a;
-color: white;
-border-color: #475569;
+
+
+body.dark-mode .hero {
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a 0%,
+            #111827 55%,
+            #172554 100%
+        );
 }
-body.dark .generated-question {
-    background: #0f172a;
-color: #e2e8f0;
+
+
+body.dark-mode .hero-card,
+body.dark-mode .grade-card,
+body.dark-mode .generator-card,
+body.dark-mode .worksheet-card,
+body.dark-mode .calculator,
+body.dark-mode .about-card {
+    background: #111827;
+    border-color: #334155;
 }
-body.dark .small-button {
+
+
+body.dark-mode .section-light {
+    background: #0b1120;
+}
+
+
+body.dark-mode .section-heading p,
+body.dark-mode .hero-text > p,
+body.dark-mode .grade-card p,
+body.dark-mode .worksheet-card p,
+body.dark-mode .about p {
+    color: #94a3b8;
+}
+
+
+body.dark-mode .question-area {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+
+body.dark-mode .setting-group select,
+body.dark-mode .answer-input,
+body.dark-mode .calculator-display {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #475569;
+}
+
+
+body.dark-mode .score-item {
+    background: #0f172a;
+    border-color: #334155;
+}
+
+
+body.dark-mode .score-label,
+body.dark-mode .question-top {
+    color: #94a3b8;
+}
+
+
+body.dark-mode .calculator-buttons button {
     background: #1e293b;
+    color: #ffffff;
+    border-color: #334155;
 }
-/* Mobile */
-@media (max-width: 700px) {
-.generator-card {
-        padding: 22px 15px;
+
+
+body.dark-mode .calculator-buttons button:hover {
+    background: #334155;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .nav {
+        gap: 12px;
     }
-.generator-settings {
+
+    .nav-link {
+        font-size: 13px;
+    }
+
+    .grade-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero-content {
+        gap: 40px;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .nav {
+        position: absolute;
+
+        top: 70px;
+        left: 4%;
+
+        width: 92%;
+
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 15px;
+
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+    }
+
+
+    .nav.open {
+        display: flex;
+    }
+
+
+    .nav-link {
+        padding: 10px;
+    }
+
+
+    .menu-button {
+        display: block;
+    }
+
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    .hero-card {
+        max-width: 450px;
+        width: 100%;
+        margin: auto;
+    }
+
+
+    .grade-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .about {
         grid-template-columns: 1fr;
     }
-.generated-question {
-        font-size: 24px;
-min-height: 90px;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .section {
+        padding: 60px 0;
     }
-.answer-buttons {
+
+
+    .generator-card {
+        padding: 20px;
+    }
+
+
+    .generator-settings {
+        grid-template-columns: 1fr;
+    }
+
+
+    .score-board {
+        grid-template-columns: 1fr;
+    }
+
+
+    .worksheet-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .grade-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero {
+        min-height: auto;
+        padding: 80px 0;
+    }
+
+
+    .hero h1 {
+        letter-spacing: -1px;
+    }
+
+
+    .answer-buttons,
+    .generator-actions {
         flex-direction: column;
     }
-.answer-buttons .btn {
+
+
+    .answer-buttons button,
+    .generator-actions button {
         width: 100%;
     }
-.score-board strong {
-        font-size: 23px;
-    }
+
 }
+
+
+@media (max-width: 420px) {
+
+    .header-actions {
+        gap: 4px;
+    }
+
+
+    .logo {
+        font-size: 16px;
+    }
+
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .icon-button,
+    .menu-button {
+        min-width: 36px;
+        height: 36px;
+        padding: 0 7px;
+    }
+
+
+    .hero-card {
+        min-height: 250px;
+    }
+
+
+    .math-symbol {
+        font-size: 60px;
+    }
+
+
+    .math-formula {
+        font-size: 20px;
+    }
+
+}
+```
