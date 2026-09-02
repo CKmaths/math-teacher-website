@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math Teacher | Learn Mathematics</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+
+            <div class="logo">
+                📐 Math Teacher
+            </div>
+
+            <button class="menu-toggle" onclick="toggleMenu()">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">🏠 Home</a></li>
+                <li><a href="#lessons">📚 Math Lessons</a></li>
+                <li><a href="#exercises">📝 Exercises</a></li>
+                <li><a href="#worksheets">📄 Worksheets</a></li>
+                <li><a href="#calculator">🧮 Calculator</a></li>
+                <li><a href="#contact">📞 Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Home -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">WELCOME TO MY MATH CLASS</p>
+
+            <h1>
+                Learn Mathematics
+                <span>Step by Step</span>
+            </h1>
+
+            <p>
+                Learn mathematics through clear lessons,
+                practical examples, exercises and worksheets.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#lessons" class="btn primary">
+                    Explore Lessons
+                </a>
+
+                <a href="#calculator" class="btn secondary">
+                    Open Calculator
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Math Lessons -->
+    <section id="lessons" class="section">
+
+        <div class="section-title">
+
+            <p>LEARNING</p>
+
+            <h2>📚 Math Lessons</h2>
+
+            <span>
+                Mathematics lessons from basic to advanced
+            </span>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="card-icon">➕</div>
+
+                <h3>Algebra</h3>
+
+                <p>
+                    Learn equations, expressions,
+                    factoring and algebraic functions.
+                </p>
+
+                <button onclick="showMessage('Algebra lessons are coming soon!')">
+                    Learn More
+                </button>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">📐</div>
+
+                <h3>Geometry</h3>
+
+                <p>
+                    Study triangles, circles,
+                    angles and geometric properties.
+                </p>
+
+                <button onclick="showMessage('Geometry lessons are coming soon!')">
+                    Learn More
+                </button>
+            </div>
+
+
+            <div class="card">
+                <div class="card-icon">∫</div>
+
+                <h3>Calculus</h3>
+
+                <p>
+                    Learn limits, derivatives,
+                    integrals and applications.
+                </p>
+
+                <button onclick="showMessage('Calculus lessons are coming soon!')">
+                    Learn More
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Exercises -->
+    <section id="exercises" class="section light">
+
+        <div class="section-title">
+
+            <p>PRACTICE</p>
+
+            <h2>📝 Exercises</h2>
+
+            <span>
+                Practice mathematics and improve your skills
+            </span>
+
+        </div>
+
+
+        <div class="exercise-box">
+
+            <h3>Example Exercise</h3>
+
+            <p>
+                Solve the equation:
+            </p>
+
+            <div class="math-question">
+                2x + 5 = 17
+            </div>
+
+            <button
+                class="btn primary"
+                onclick="showAnswer()">
+                Show Answer
+            </button>
+
+            <p id="answer" class="answer"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Worksheets -->
+    <section id="worksheets" class="section">
+
+        <div class="section-title">
+
+            <p>RESOURCES</p>
+
+            <h2>📄 Worksheets</h2>
+
+            <span>
+                Download mathematics worksheets for practice
+            </span>
+
+        </div>
+
+
+        <div class="worksheet-box">
+
+            <div>
+                <h3>📄 Algebra Worksheet</h3>
+
+                <p>
+                    Basic algebra exercises for students.
+                </p>
+            </div>
+
+            <button
+                onclick="showMessage('Worksheet download will be available soon!')">
+                Download
+            </button>
+
+        </div>
+
+
+        <div class="worksheet-box">
+
+            <div>
+                <h3>📄 Geometry Worksheet</h3>
+
+                <p>
+                    Practice triangles, angles and circles.
+                </p>
+            </div>
+
+            <button
+                onclick="showMessage('Worksheet download will be available soon!')">
+                Download
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Calculator -->
+    <section id="calculator" class="section light">
+
+        <div class="section-title">
+
+            <p>TOOLS</p>
+
+            <h2>🧮 Math Calculator</h2>
+
+            <span>
+                Calculate basic mathematical operations
+            </span>
+
+        </div>
+
+
+        <div class="calculator">
+
+            <input
+                type="text"
+                id="display"
+                readonly
+                placeholder="0"
+            >
+
+            <div class="calculator-buttons">
+
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="deleteLast()">⌫</button>
+                <button onclick="addToDisplay('/')">÷</button>
+                <button onclick="addToDisplay('*')">×</button>
+
+                <button onclick="addToDisplay('7')">7</button>
+                <button onclick="addToDisplay('8')">8</button>
+                <button onclick="addToDisplay('9')">9</button>
+                <button onclick="addToDisplay('-')">−</button>
+
+                <button onclick="addToDisplay('4')">4</button>
+                <button onclick="addToDisplay('5')">5</button>
+                <button onclick="addToDisplay('6')">6</button>
+                <button onclick="addToDisplay('+')">+</button>
+
+                <button onclick="addToDisplay('1')">1</button>
+                <button onclick="addToDisplay('2')">2</button>
+                <button onclick="addToDisplay('3')">3</button>
+                <button onclick="calculate()">=</button>
+
+                <button
+                    class="zero"
+                    onclick="addToDisplay('0')">
+                    0
+                </button>
+
+                <button onclick="addToDisplay('.')">.</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+
+        <div class="section-title">
+
+            <p>GET IN TOUCH</p>
+
+            <h2>📞 Contact</h2>
+
+            <span>
+                Contact me for mathematics lessons and resources.
+            </span>
+
+        </div>
+
+
+        <div class="contact-box">
+
+            <h3>Math Teacher</h3>
+
+            <p>📧 Email: your-email@example.com</p>
+
+            <p>📍 Cambodia</p>
+
+            <p>
+                📚 Mathematics Teacher & Educational Content Creator
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Math Teacher. All Rights Reserved.
+        </p>
+
+        <p>
+            Mathematics • Education • Learning
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
