@@ -1,179 +1,777 @@
-<!-- =========================
-     EXERCISE GENERATOR
-========================= -->
-<section id="exercises"
-         class="section section-light">
-<div class="section-heading">
-<p class="section-label">
-            PRACTICE
-        </p>
-<h2
-            data-km="📝 ម៉ាស៊ីនបង្កើតលំហាត់"
-            data-en="📝 Exercise Generator">
-📝 ម៉ាស៊ីនបង្កើតលំហាត់
-</h2>
-<p
-            data-km="បង្កើតលំហាត់គណិតវិទ្យាថ្មីៗដោយស្វ័យប្រវត្តិ"
-            data-en="Generate new mathematics questions automatically">
-បង្កើតលំហាត់គណិតវិទ្យាថ្មីៗដោយស្វ័យប្រវត្តិ
-</p>
-</div>
-<div class="generator-card">
-<!-- Settings -->
-<div class="generator-settings">
-<div class="setting-group">
-<label
-                    data-km="ប្រធានបទ"
-                    data-en="Topic">
-ប្រធានបទ
-</label>
-<select id="topicSelect">
-<option value="addition">
-                        Addition
-                    </option>
-<option value="subtraction">
-                        Subtraction
-                    </option>
-<option value="multiplication">
-                        Multiplication
-                    </option>
-<option value="division">
-                        Division
-                    </option>
-<option value="algebra">
-                        Algebra
-                    </option>
-</select>
-</div>
-<div class="setting-group">
-<label
-                    data-km="កម្រិត"
-                    data-en="Difficulty">
-កម្រិត
-</label>
-<select id="difficultySelect">
-<option value="easy">
-                        ⭐ Easy
-                    </option>
-<option value="medium">
-                        ⭐⭐ Medium
-                    </option>
-<option value="hard">
-                        ⭐⭐⭐ Hard
-                    </option>
-</select>
-</div>
-<button
-                id="generateButton"
-                class="btn btn-primary">
-🔄
-                <span
-                    data-km="បង្កើតលំហាត់"
-                    data-en="Generate Question">
-បង្កើតលំហាត់
-</span>
-</button>
-</div>
-<!-- Question -->
-<div class="question-area">
-<span class="question-number"
-                  id="questionNumber">
-Question 1
-</span>
-<h3
-                data-km="សំណួរ"
-                data-en="Question">
-សំណួរ
-</h3>
-<div id="question"
-                 class="generated-question">
-ចុច "បង្កើតលំហាត់"
-                ដើម្បីចាប់ផ្តើម
-</div>
-<!-- Hint -->
-<button
-                id="hintButton"
-                class="small-button">
-💡
-                <span
-                    data-km="បង្ហាញ Hint"
-                    data-en="Show Hint">
-បង្ហាញ Hint
-</span>
-</button>
-<p id="hint"
-               class="hint">
+```html
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Math Teacher | Mathematics Learning</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-icon">∑</span>
+                <span>Math Teacher</span>
+            </a>
+
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="nav-link active" data-km="ទំព័រដើម" data-en="Home">
+                    ទំព័រដើម
+                </a>
+
+                <a href="#lessons" class="nav-link" data-km="មេរៀន" data-en="Lessons">
+                    មេរៀន
+                </a>
+
+                <a href="#exercises" class="nav-link" data-km="លំហាត់" data-en="Exercises">
+                    លំហាត់
+                </a>
+
+                <a href="#worksheets" class="nav-link" data-km="សន្លឹកកិច្ចការ" data-en="Worksheets">
+                    សន្លឹកកិច្ចការ
+                </a>
+
+                <a href="#calculator" class="nav-link" data-km="ម៉ាស៊ីនគិតលេខ" data-en="Calculator">
+                    ម៉ាស៊ីនគិតលេខ
+                </a>
+
+                <a href="#contact" class="nav-link" data-km="ទំនាក់ទំនង" data-en="Contact">
+                    ទំនាក់ទំនង
+                </a>
+            </nav>
+
+            <div class="header-actions">
+
+                <button id="languageButton" class="icon-button" type="button">
+                    EN
+                </button>
+
+                <button id="darkModeButton" class="icon-button" type="button">
+                    🌙
+                </button>
+
+                <button id="menuButton" class="menu-button" type="button">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+    <main>
+
+        <!-- ================= HOME ================= -->
+        <section id="home" class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="badge"
+                          data-km="📚 រៀនគណិតវិទ្យាឱ្យយល់"
+                          data-en="📚 Learn Mathematics">
+                        📚 រៀនគណិតវិទ្យាឱ្យយល់
+                    </span>
+
+                    <h1 data-km="រៀនគណិតវិទ្យា<br><span>ងាយយល់ និងអនុវត្តបាន</span>"
+                        data-en="Learn Mathematics<br><span>Clearly & Practically</span>">
+                        រៀនគណិតវិទ្យា<br>
+                        <span>ងាយយល់ និងអនុវត្តបាន</span>
+                    </h1>
+
+                    <p data-km="មេរៀន លំហាត់ និងឧបករណ៍ជំនួយសម្រាប់សិស្ស និងគ្រូបង្រៀនគណិតវិទ្យា។"
+                       data-en="Lessons, exercises and useful tools for students and mathematics teachers.">
+                        មេរៀន លំហាត់ និងឧបករណ៍ជំនួយសម្រាប់សិស្ស
+                        និងគ្រូបង្រៀនគណិតវិទ្យា។
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#lessons" class="primary-button"
+                           data-km="ចាប់ផ្តើមរៀន"
+                           data-en="Start Learning">
+                            ចាប់ផ្តើមរៀន
+                        </a>
+
+                        <a href="#exercises" class="secondary-button"
+                           data-km="អនុវត្តលំហាត់"
+                           data-en="Practice Now">
+                            អនុវត្តលំហាត់
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-card">
+
+                    <div class="math-symbol">∫</div>
+
+                    <div class="math-formula">
+                        y = ax² + bx + c
+                    </div>
+
+                    <div class="math-symbol">π</div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LESSONS ================= -->
+        <section id="lessons" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label"
+                          data-km="មេរៀន"
+                          data-en="LESSONS">
+                        មេរៀន
+                    </span>
+
+                    <h2 data-km="រៀនតាមកម្រិតថ្នាក់"
+                        data-en="Learn by Grade Level">
+                        រៀនតាមកម្រិតថ្នាក់
+                    </h2>
+
+                    <p data-km="ជ្រើសរើសកម្រិតថ្នាក់ដែលអ្នកចង់សិក្សា។"
+                       data-en="Choose the grade level you want to study.">
+                        ជ្រើសរើសកម្រិតថ្នាក់ដែលអ្នកចង់សិក្សា។
+                    </p>
+
+                </div>
+
+
+                <div class="grade-grid">
+
+                    <div class="grade-card">
+                        <div class="grade-number">7</div>
+                        <h3 data-km="គណិតវិទ្យា ថ្នាក់ទី ៧"
+                            data-en="Grade 7 Mathematics">
+                            គណិតវិទ្យា ថ្នាក់ទី ៧
+                        </h3>
+                        <p data-km="មូលដ្ឋានគ្រឹះ និងលំហាត់អនុវត្ត"
+                           data-en="Fundamentals and practice exercises">
+                            មូលដ្ឋានគ្រឹះ និងលំហាត់អនុវត្ត
+                        </p>
+                        <button class="outline-button" type="button"
+                                data-km="មើលមេរៀន"
+                                data-en="View Lessons">
+                            មើលមេរៀន
+                        </button>
+                    </div>
+
+
+                    <div class="grade-card">
+                        <div class="grade-number">8</div>
+                        <h3 data-km="គណិតវិទ្យា ថ្នាក់ទី ៨"
+                            data-en="Grade 8 Mathematics">
+                            គណិតវិទ្យា ថ្នាក់ទី ៨
+                        </h3>
+                        <p data-km="ពិជគណិត និងធរណីមាត្រ"
+                           data-en="Algebra and Geometry">
+                            ពិជគណិត និងធរណីមាត្រ
+                        </p>
+                        <button class="outline-button" type="button"
+                                data-km="មើលមេរៀន"
+                                data-en="View Lessons">
+                            មើលមេរៀន
+                        </button>
+                    </div>
+
+
+                    <div class="grade-card">
+                        <div class="grade-number">9</div>
+                        <h3 data-km="គណិតវិទ្យា ថ្នាក់ទី ៩"
+                            data-en="Grade 9 Mathematics">
+                            គណិតវិទ្យា ថ្នាក់ទី ៩
+                        </h3>
+                        <p data-km="សមីការ អនុគមន៍ និងធរណីមាត្រ"
+                           data-en="Equations, Functions and Geometry">
+                            សមីការ អនុគមន៍ និងធរណីមាត្រ
+                        </p>
+                        <button class="outline-button" type="button"
+                                data-km="មើលមេរៀន"
+                                data-en="View Lessons">
+                            មើលមេរៀន
+                        </button>
+                    </div>
+
+
+                    <div class="grade-card">
+                        <div class="grade-number">10</div>
+                        <h3 data-km="គណិតវិទ្យា ថ្នាក់ទី ១០"
+                            data-en="Grade 10 Mathematics">
+                            គណិតវិទ្យា ថ្នាក់ទី ១០
+                        </h3>
+                        <p data-km="អាល់ហ្សេប្រា និងត្រីកោណមាត្រ"
+                           data-en="Algebra and Trigonometry">
+                            អាល់ហ្សេប្រា និងត្រីកោណមាត្រ
+                        </p>
+                        <button class="outline-button" type="button"
+                                data-km="មើលមេរៀន"
+                                data-en="View Lessons">
+                            មើលមេរៀន
+                        </button>
+                    </div>
+
+
+                    <div class="grade-card">
+                        <div class="grade-number">11</div>
+                        <h3 data-km="គណិតវិទ្យា ថ្នាក់ទី ១១"
+                            data-en="Grade 11 Mathematics">
+                            គណិតវិទ្យា ថ្នាក់ទី ១១
+                        </h3>
+                        <p data-km="កាលគុល និងប្រធានបទកម្រិតខ្ពស់"
+                           data-en="Calculus and advanced topics">
+                            កាលគុល និងប្រធានបទកម្រិតខ្ពស់
+                        </p>
+                        <button class="outline-button" type="button"
+                                data-km="មើលមេរៀន"
+                                data-en="View Lessons">
+                            មើលមេរៀន
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EXERCISE GENERATOR ================= -->
+        <section id="exercises" class="section section-light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label"
+                          data-km="លំហាត់"
+                          data-en="PRACTICE">
+                        លំហាត់
+                    </span>
+
+                    <h2 data-km="Exercise Generator"
+                        data-en="Exercise Generator">
+                        Exercise Generator
+                    </h2>
+
+                    <p data-km="បង្កើតលំហាត់ចៃដន្យ ហើយអនុវត្តដោយខ្លួនឯង។"
+                       data-en="Generate random questions and practice by yourself.">
+                        បង្កើតលំហាត់ចៃដន្យ ហើយអនុវត្តដោយខ្លួនឯង។
+                    </p>
+
+                </div>
+
+
+                <div class="generator-card">
+
+                    <!-- SETTINGS -->
+                    <div class="generator-settings">
+
+                        <div class="setting-group">
+
+                            <label for="topicSelect"
+                                   data-km="ប្រធានបទ"
+                                   data-en="Topic">
+                                ប្រធានបទ
+                            </label>
+
+                            <select id="topicSelect">
+
+                                <option value="addition"
+                                        data-km="បូក"
+                                        data-en="Addition">
+                                    បូក
+                                </option>
+
+                                <option value="subtraction"
+                                        data-km="ដក"
+                                        data-en="Subtraction">
+                                    ដក
+                                </option>
+
+                                <option value="multiplication"
+                                        data-km="គុណ"
+                                        data-en="Multiplication">
+                                    គុណ
+                                </option>
+
+                                <option value="division"
+                                        data-km="ចែក"
+                                        data-en="Division">
+                                    ចែក
+                                </option>
+
+                                <option value="algebra"
+                                        data-km="សមីការអាល់ហ្សេប្រា"
+                                        data-en="Algebra">
+                                    សមីការអាល់ហ្សេប្រា
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="setting-group">
+
+                            <label for="difficultySelect"
+                                   data-km="កម្រិត"
+                                   data-en="Difficulty">
+                                កម្រិត
+                            </label>
+
+                            <select id="difficultySelect">
+
+                                <option value="easy"
+                                        data-km="ងាយ"
+                                        data-en="Easy">
+                                    ងាយ
+                                </option>
+
+                                <option value="medium"
+                                        data-km="មធ្យម"
+                                        data-en="Medium">
+                                    មធ្យម
+                                </option>
+
+                                <option value="hard"
+                                        data-km="ពិបាក"
+                                        data-en="Hard">
+                                    ពិបាក
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- QUESTION -->
+                    <div class="question-area">
+
+                        <div class="question-top">
+
+                            <span id="questionNumber">
+                                Question 1
+                            </span>
+
+                        </div>
+
+                        <div id="question" class="generated-question">
+                            5 + 7 = ?
+                        </div>
+
+                        <div id="hint" class="hint hidden">
+                        </div>
+
+                    </div>
+
+
+                    <!-- ACTIONS -->
+                    <div class="generator-actions">
+
+                        <button id="generateButton"
+                                class="primary-button"
+                                type="button"
+                                data-km="🎲 បង្កើតលំហាត់"
+                                data-en="🎲 Generate">
+                            🎲 បង្កើតលំហាត់
+                        </button>
+
+                        <button id="hintButton"
+                                class="small-button"
+                                type="button"
+                                data-km="💡 ជំនួយ"
+                                data-en="💡 Hint">
+                            💡 ជំនួយ
+                        </button>
+
+                    </div>
+
+
+                    <!-- ANSWER -->
+                    <div class="answer-area">
+
+                        <label for="userAnswer"
+                               data-km="ចម្លើយរបស់អ្នក"
+                               data-en="Your Answer">
+                            ចម្លើយរបស់អ្នក
+                        </label>
+
+                        <input
+                            id="userAnswer"
+                            class="answer-input"
+                            type="number"
+                            placeholder="Answer"
+                            autocomplete="off"
+                        >
+
+                        <div class="answer-buttons">
+
+                            <button id="checkButton"
+                                    class="primary-button"
+                                    type="button"
+                                    data-km="✅ ពិនិត្យចម្លើយ"
+                                    data-en="✅ Check Answer">
+                                ✅ ពិនិត្យចម្លើយ
+                            </button>
+
+                            <button id="showAnswerButton"
+                                    class="secondary-button"
+                                    type="button"
+                                    data-km="👁️ បង្ហាញចម្លើយ"
+                                    data-en="👁️ Show Answer">
+                                👁️ បង្ហាញចម្លើយ
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FEEDBACK -->
+                    <div id="feedback" class="feedback hidden">
+                    </div>
+
+
+                    <!-- SCORE -->
+                    <div class="score-board">
+
+                        <div class="score-item">
+
+                            <span class="score-icon">🏆</span>
+
+                            <span class="score-label"
+                                  data-km="ពិន្ទុ"
+                                  data-en="Score">
+                                ពិន្ទុ
+                            </span>
+
+                            <strong id="score">0</strong>
+
+                        </div>
+
+
+                        <div class="score-item">
+
+                            <span class="score-icon">📝</span>
+
+                            <span class="score-label"
+                                  data-km="សំណួរ"
+                                  data-en="Questions">
+                                សំណួរ
+                            </span>
+
+                            <strong id="totalQuestions">0</strong>
+
+                        </div>
+
+
+                        <div class="score-item">
+
+                            <span class="score-icon">✅</span>
+
+                            <span class="score-label"
+                                  data-km="ត្រឹមត្រូវ"
+                                  data-en="Correct">
+                                ត្រឹមត្រូវ
+                            </span>
+
+                            <strong id="correctAnswers">0</strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WORKSHEETS ================= -->
+        <section id="worksheets" class="section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label"
+                          data-km="សន្លឹកកិច្ចការ"
+                          data-en="WORKSHEETS">
+                        សន្លឹកកិច្ចការ
+                    </span>
+
+                    <h2 data-km="Worksheets"
+                        data-en="Worksheets">
+                        Worksheets
+                    </h2>
+
+                    <p data-km="សន្លឹកកិច្ចការសម្រាប់ការអនុវត្ត។"
+                       data-en="Printable worksheets for practice.">
+                        សន្លឹកកិច្ចការសម្រាប់ការអនុវត្ត។
+                    </p>
+
+                </div>
+
+
+                <div class="worksheet-grid">
+
+                    <div class="worksheet-card">
+
+                        <div class="worksheet-icon">📄</div>
+
+                        <h3 data-km="លំហាត់ពិជគណិត"
+                            data-en="Algebra Worksheet">
+                            លំហាត់ពិជគណិត
+                        </h3>
+
+                        <p data-km="Worksheet សម្រាប់អនុវត្តពិជគណិត។"
+                           data-en="Practice worksheet for algebra.">
+                            Worksheet សម្រាប់អនុវត្តពិជគណិត។
+                        </p>
+
+                        <button class="outline-button" type="button"
+                                data-km="ឆាប់ៗនេះ"
+                                data-en="Coming Soon">
+                            ឆាប់ៗនេះ
+                        </button>
+
+                    </div>
+
+
+                    <div class="worksheet-card">
+
+                        <div class="worksheet-icon">📐</div>
+
+                        <h3 data-km="លំហាត់ធរណីមាត្រ"
+                            data-en="Geometry Worksheet">
+                            លំហាត់ធរណីមាត្រ
+                        </h3>
+
+                        <p data-km="Worksheet សម្រាប់អនុវត្តធរណីមាត្រ។"
+                           data-en="Practice worksheet for geometry.">
+                            Worksheet សម្រាប់អនុវត្តធរណីមាត្រ។
+                        </p>
+
+                        <button class="outline-button" type="button"
+                                data-km="ឆាប់ៗនេះ"
+                                data-en="Coming Soon">
+                            ឆាប់ៗនេះ
+                        </button>
+
+                    </div>
+
+
+                    <div class="worksheet-card">
+
+                        <div class="worksheet-icon">∫</div>
+
+                        <h3 data-km="លំហាត់កាលគុល"
+                            data-en="Calculus Worksheet">
+                            លំហាត់កាលគុល
+                        </h3>
+
+                        <p data-km="Worksheet សម្រាប់អនុវត្តកាលគុល។"
+                           data-en="Practice worksheet for calculus.">
+                            Worksheet សម្រាប់អនុវត្តកាលគុល។
+                        </p>
+
+                        <button class="outline-button" type="button"
+                                data-km="ឆាប់ៗនេះ"
+                                data-en="Coming Soon">
+                            ឆាប់ៗនេះ
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CALCULATOR ================= -->
+        <section id="calculator" class="section section-light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label"
+                          data-km="ឧបករណ៍"
+                          data-en="TOOL">
+                        ឧបករណ៍
+                    </span>
+
+                    <h2 data-km="Math Calculator"
+                        data-en="Math Calculator">
+                        Math Calculator
+                    </h2>
+
+                </div>
+
+
+                <div class="calculator">
+
+                    <input
+                        id="calculatorDisplay"
+                        class="calculator-display"
+                        type="text"
+                        readonly
+                    >
+
+                    <div class="calculator-buttons">
+
+                        <button type="button" data-value="7">7</button>
+                        <button type="button" data-value="8">8</button>
+                        <button type="button" data-value="9">9</button>
+                        <button type="button" data-value="/">÷</button>
+
+                        <button type="button" data-value="4">4</button>
+                        <button type="button" data-value="5">5</button>
+                        <button type="button" data-value="6">6</button>
+                        <button type="button" data-value="*">×</button>
+
+                        <button type="button" data-value="1">1</button>
+                        <button type="button" data-value="2">2</button>
+                        <button type="button" data-value="3">3</button>
+                        <button type="button" data-value="-">−</button>
+
+                        <button type="button" data-value="0">0</button>
+                        <button type="button" data-value=".">.</button>
+                        <button type="button" id="calculatorClear">C</button>
+                        <button type="button" data-value="+">+</button>
+
+                        <button type="button"
+                                id="calculatorEquals"
+                                class="calculator-equals">
+                            =
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+        <section id="about" class="section">
+
+            <div class="container about">
+
+                <div>
+
+                    <span class="section-label"
+                          data-km="អំពីគ្រូ"
+                          data-en="ABOUT TEACHER">
+                        អំពីគ្រូ
+                    </span>
+
+                    <h2 data-km="រៀនគណិតវិទ្យាជាមួយការអនុវត្ត"
+                        data-en="Learn Mathematics Through Practice">
+                        រៀនគណិតវិទ្យាជាមួយការអនុវត្ត
+                    </h2>
+
+                    <p data-km="គោលបំណងនៃគេហទំព័រនេះ គឺជួយសិស្សឱ្យយល់ពីគោលគំនិតគណិតវិទ្យា និងអាចអនុវត្តបានដោយខ្លួនឯង។"
+                       data-en="This website aims to help students understand mathematical concepts and practice independently.">
+                        គោលបំណងនៃគេហទំព័រនេះ គឺជួយសិស្សឱ្យយល់ពីគោលគំនិតគណិតវិទ្យា
+                        និងអាចអនុវត្តបានដោយខ្លួនឯង។
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+                    <div class="about-symbol">π</div>
+                    <h3>Mathematics</h3>
+                    <p>Learn • Practice • Improve</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+        <section id="contact" class="section section-light">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label"
+                          data-km="ទំនាក់ទំនង"
+                          data-en="CONTACT">
+                        ទំនាក់ទំនង
+                    </span>
+
+                    <h2 data-km="ទាក់ទងមកខ្ញុំ"
+                        data-en="Contact Me">
+                        ទាក់ទងមកខ្ញុំ
+                    </h2>
+
+                    <p data-km="សូមទាក់ទងសម្រាប់សំណួរ ឬសំណើអំពីមេរៀន។"
+                       data-en="Contact me for questions or lesson requests.">
+                        សូមទាក់ទងសម្រាប់សំណួរ ឬសំណើអំពីមេរៀន។
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © <span id="currentYear"></span> Math Teacher.
+                <span data-km="រក្សាសិទ្ធិគ្រប់យ៉ាង។"
+                      data-en="All rights reserved.">
+                    រក្សាសិទ្ធិគ្រប់យ៉ាង។
+                </span>
             </p>
-<!-- Answer Input -->
-<div class="answer-input">
-<label
-                    data-km="បញ្ចូលចម្លើយ"
-                    data-en="Enter your answer">
-បញ្ចូលចម្លើយ
-</label>
-<input
-                    type="number"
-                    id="userAnswer"
-                    placeholder="Answer">
-</div>
-<div class="answer-buttons">
-<button
-                    id="checkButton"
-                    class="btn btn-primary">
-✅
-                    <span
-                        data-km="ពិនិត្យចម្លើយ"
-                        data-en="Check Answer">
-ពិនិត្យចម្លើយ
-</span>
-</button>
-<button
-                    id="showAnswerButton"
-                    class="btn btn-secondary">
-👁️
-                    <span
-                        data-km="មើលចម្លើយ"
-                        data-en="Show Answer">
-មើលចម្លើយ
-</span>
-</button>
-</div>
-<div id="feedback"
-                 class="feedback">
-            </div>
-</div>
-<!-- Score -->
-<div class="score-board">
-<div>
-                <strong id="score">
-                    0
-                </strong>
-<span
-                    data-km="ពិន្ទុ"
-                    data-en="Score">
-ពិន្ទុ
-</span>
-            </div>
-<div>
-                <strong id="totalQuestions">
-                    0
-                </strong>
-<span
-                    data-km="លំហាត់"
-                    data-en="Questions">
-លំហាត់
-</span>
-            </div>
-<div>
-                <strong id="correctAnswers">
-                    0
-                </strong>
-<span
-                    data-km="ត្រូវ"
-                    data-en="Correct">
-ត្រូវ
-</span>
-            </div>
-</div>
-</div>
-</section>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+```
