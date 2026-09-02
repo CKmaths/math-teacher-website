@@ -1,505 +1,179 @@
-<!DOCTYPE html>
-<html lang="km">
-<head>
-    <meta charset="UTF-8">
-<meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-<meta name="description"
-          content="Professional Mathematics Learning Website">
-<title>Math Teacher | Mathematics Learning</title>
-<link rel="stylesheet"
-          href="style.css">
-</head>
-<body>
 <!-- =========================
-         HEADER
-    ========================== -->
-<header class="header">
-<nav class="navbar">
-<a href="#home"
-               class="logo">
-                📐 Math<span>Teacher</span>
-            </a>
-<button class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Open Menu">
-                ☰
-            </button>
-<ul class="nav-links"
-                id="navLinks">
-<li>
-                    <a href="#home"
-                       data-km="ទំព័រដើម"
-                       data-en="Home">
-                        ទំព័រដើម
-                    </a>
-                </li>
-<li>
-                    <a href="#lessons"
-                       data-km="មេរៀន"
-                       data-en="Lessons">
-                        មេរៀន
-                    </a>
-                </li>
-<li>
-                    <a href="#exercises"
-                       data-km="លំហាត់"
-                       data-en="Exercises">
-                        លំហាត់
-                    </a>
-                </li>
-<li>
-                    <a href="#worksheets"
-                       data-km="សន្លឹកកិច្ចការ"
-                       data-en="Worksheets">
-                        សន្លឹកកិច្ចការ
-                    </a>
-                </li>
-<li>
-                    <a href="#calculator"
-                       data-km="ម៉ាស៊ីនគិតលេខ"
-                       data-en="Calculator">
-                        ម៉ាស៊ីនគិតលេខ
-                    </a>
-                </li>
-<li>
-                    <a href="#about"
-                       data-km="អំពីគ្រូ"
-                       data-en="About">
-                        អំពីគ្រូ
-                    </a>
-                </li>
-<li>
-                    <a href="#contact"
-                       data-km="ទំនាក់ទំនង"
-                       data-en="Contact">
-                        ទំនាក់ទំនង
-                    </a>
-                </li>
-</ul>
-<div class="nav-actions">
-<button id="languageToggle"
-                        class="icon-button">
-                    🇬🇧 EN
-                </button>
-<button id="themeToggle"
-                        class="icon-button"
-                        aria-label="Toggle dark mode">
-                    🌙
-                </button>
-</div>
-</nav>
-</header>
-<!-- =========================
-         HERO
-    ========================== -->
-<main>
-<section id="home"
-                 class="hero">
-<div class="hero-content">
-<div class="badge">
-                    📚 Mathematics Education
-                </div>
-<h1
-                    data-km="រៀនគណិតវិទ្យា<br><span>យ៉ាងងាយ និងច្បាស់លាស់</span>"
-                    data-en="Learn Mathematics<br><span>Clearly & Step by Step</span>">
-រៀនគណិតវិទ្យា
-                    <br>
-                    <span>
-                        យ៉ាងងាយ និងច្បាស់លាស់
-                    </span>
-</h1>
-<p
-                    data-km="មេរៀន លំហាត់ និងសន្លឹកកិច្ចការ សម្រាប់ជួយសិស្សឱ្យយល់ និងស្រឡាញ់គណិតវិទ្យា។"
-                    data-en="Lessons, exercises and worksheets designed to help students understand and enjoy mathematics.">
-មេរៀន លំហាត់ និងសន្លឹកកិច្ចការ
-                    សម្រាប់ជួយសិស្សឱ្យយល់
-                    និងស្រឡាញ់គណិតវិទ្យា។
-                </p>
-<div class="hero-buttons">
-<a href="#lessons"
-                       class="btn btn-primary"
-                       data-km="📚 ចាប់ផ្តើមរៀន"
-                       data-en="📚 Start Learning">
-📚 ចាប់ផ្តើមរៀន
-</a>
-<a href="#calculator"
-                       class="btn btn-secondary"
-                       data-km="🧮 ប្រើម៉ាស៊ីនគិតលេខ"
-                       data-en="🧮 Open Calculator">
-🧮 ប្រើម៉ាស៊ីនគិតលេខ
-</a>
-</div>
-</div>
-</section>
-<!-- =========================
-             LESSONS
-        ========================== -->
-<section id="lessons"
-                 class="section">
-<div class="section-heading">
-<p class="section-label">
-                    LEARNING
-                </p>
-<h2
-                    data-km="📚 មេរៀនគណិតវិទ្យា"
-                    data-en="📚 Mathematics Lessons">
-📚 មេរៀនគណិតវិទ្យា
-</h2>
-<p
-                    data-km="ជ្រើសរើសកម្រិតសិក្សារបស់អ្នក"
-                    data-en="Choose your learning level">
-ជ្រើសរើសកម្រិតសិក្សារបស់អ្នក
-</p>
-</div>
-<div class="grade-grid">
-<article class="grade-card">
-<div class="grade-number">
-                        7
-                    </div>
-<h3>Grade 7</h3>
-<p
-                        data-km="គ្រឹះគណិតវិទ្យា និង Algebra"
-                        data-en="Mathematics foundations and Algebra">
-គ្រឹះគណិតវិទ្យា និង Algebra
-</p>
-<button class="outline-button"
-                            onclick="comingSoon()">
-Explore →
-
-</button>
-</article>
-<article class="grade-card">
-<div class="grade-number">
-                        8
-                    </div>
-<h3>Grade 8</h3>
-<p
-                        data-km="Algebra, Geometry និង Exponents"
-                        data-en="Algebra, Geometry and Exponents">
-Algebra, Geometry និង Exponents
-</p>
-<button class="outline-button"
-                            onclick="comingSoon()">
-Explore →
-
-</button>
-</article>
-<article class="grade-card">
-<div class="grade-number">
-                        9
-                    </div>
-<h3>Grade 9</h3>
-<p
-                        data-km="Algebra, Geometry និង Functions"
-                        data-en="Algebra, Geometry and Functions">
-Algebra, Geometry និង Functions
-</p>
-<button class="outline-button"
-                            onclick="comingSoon()">
-Explore →
-
-</button>
-</article>
-<article class="grade-card">
-<div class="grade-number">
-                        10
-                    </div>
-<h3>Grade 10</h3>
-<p
-                        data-km="Functions, Trigonometry និង Geometry"
-                        data-en="Functions, Trigonometry and Geometry">
-Functions, Trigonometry និង Geometry
-</p>
-<button class="outline-button"
-                            onclick="comingSoon()">
-Explore →
-
-</button>
-</article>
-<article class="grade-card">
-<div class="grade-number">
-                        11
-                    </div>
-<h3>Grade 11</h3>
-<p
-                        data-km="Calculus, Probability និង Advanced Mathematics"
-                        data-en="Calculus, Probability and Advanced Mathematics">
-Calculus, Probability និង Advanced Mathematics
-</p>
-<button class="outline-button"
-                            onclick="comingSoon()">
-Explore →
-
-</button>
-</article>
-</div>
-</section>
-<!-- =========================
-             EXERCISES
-        ========================== -->
+     EXERCISE GENERATOR
+========================= -->
 <section id="exercises"
-                 class="section section-light">
+         class="section section-light">
 <div class="section-heading">
 <p class="section-label">
-                    PRACTICE
-                </p>
+            PRACTICE
+        </p>
 <h2
-                    data-km="📝 លំហាត់គណិតវិទ្យា"
-                    data-en="📝 Mathematics Exercises">
-📝 លំហាត់គណិតវិទ្យា
+            data-km="📝 ម៉ាស៊ីនបង្កើតលំហាត់"
+            data-en="📝 Exercise Generator">
+📝 ម៉ាស៊ីនបង្កើតលំហាត់
 </h2>
 <p
-                    data-km="អនុវត្តជាមួយលំហាត់គំរូ"
-                    data-en="Practice with sample exercises">
-អនុវត្តជាមួយលំហាត់គំរូ
+            data-km="បង្កើតលំហាត់គណិតវិទ្យាថ្មីៗដោយស្វ័យប្រវត្តិ"
+            data-en="Generate new mathematics questions automatically">
+បង្កើតលំហាត់គណិតវិទ្យាថ្មីៗដោយស្វ័យប្រវត្តិ
 </p>
 </div>
-<div class="exercise-card">
-<span class="exercise-label">
-                    Algebra
-                </span>
-<h3
-                    data-km="ដោះស្រាយសមីការ"
-                    data-en="Solve the Equation">
-ដោះស្រាយសមីការ
-</h3>
-<div class="equation">
-                    2x + 5 = 17
-                </div>
-<button class="btn btn-primary"
-                        id="answerButton">
-💡
-                    <span
-                        data-km="បង្ហាញចម្លើយ"
-                        data-en="Show Answer">
-បង្ហាញចម្លើយ
+<div class="generator-card">
+<!-- Settings -->
+<div class="generator-settings">
+<div class="setting-group">
+<label
+                    data-km="ប្រធានបទ"
+                    data-en="Topic">
+ប្រធានបទ
+</label>
+<select id="topicSelect">
+<option value="addition">
+                        Addition
+                    </option>
+<option value="subtraction">
+                        Subtraction
+                    </option>
+<option value="multiplication">
+                        Multiplication
+                    </option>
+<option value="division">
+                        Division
+                    </option>
+<option value="algebra">
+                        Algebra
+                    </option>
+</select>
+</div>
+<div class="setting-group">
+<label
+                    data-km="កម្រិត"
+                    data-en="Difficulty">
+កម្រិត
+</label>
+<select id="difficultySelect">
+<option value="easy">
+                        ⭐ Easy
+                    </option>
+<option value="medium">
+                        ⭐⭐ Medium
+                    </option>
+<option value="hard">
+                        ⭐⭐⭐ Hard
+                    </option>
+</select>
+</div>
+<button
+                id="generateButton"
+                class="btn btn-primary">
+🔄
+                <span
+                    data-km="បង្កើតលំហាត់"
+                    data-en="Generate Question">
+បង្កើតលំហាត់
 </span>
 </button>
-<p id="answer"
-                   class="answer">
-                </p>
 </div>
-</section>
-<!-- =========================
-             WORKSHEETS
-        ========================== -->
-<section id="worksheets"
-                 class="section">
-<div class="section-heading">
-<p class="section-label">
-                    RESOURCES
-                </p>
-<h2
-                    data-km="📄 សន្លឹកកិច្ចការ"
-                    data-en="📄 Worksheets">
-📄 សន្លឹកកិច្ចការ
-</h2>
-<p
-                    data-km="ធនធានសម្រាប់សិស្សអនុវត្ត"
-                    data-en="Resources for student practice">
-ធនធានសម្រាប់សិស្សអនុវត្ត
-</p>
+<!-- Question -->
+<div class="question-area">
+<span class="question-number"
+                  id="questionNumber">
+Question 1
+</span>
+<h3
+                data-km="សំណួរ"
+                data-en="Question">
+សំណួរ
+</h3>
+<div id="question"
+                 class="generated-question">
+ចុច "បង្កើតលំហាត់"
+                ដើម្បីចាប់ផ្តើម
 </div>
-<div class="worksheet-list">
-<article class="worksheet">
-<div class="worksheet-icon">
-                        📄
-                    </div>
-<div class="worksheet-info">
-<h3>
-                            Algebra Worksheet
-                        </h3>
-<p
-                            data-km="លំហាត់ Algebra មូលដ្ឋាន"
-                            data-en="Basic Algebra exercises">
-លំហាត់ Algebra មូលដ្ឋាន
-</p>
-</div>
-<button class="download-button"
-                            onclick="comingSoon()">
-Download PDF
+<!-- Hint -->
+<button
+                id="hintButton"
+                class="small-button">
+💡
+                <span
+                    data-km="បង្ហាញ Hint"
+                    data-en="Show Hint">
+បង្ហាញ Hint
+</span>
 </button>
-</article>
-<article class="worksheet">
-<div class="worksheet-icon">
-                        📐
-                    </div>
-<div class="worksheet-info">
-<h3>
-                            Geometry Worksheet
-                        </h3>
-<p
-                            data-km="លំហាត់ Geometry សម្រាប់អនុវត្ត"
-                            data-en="Geometry practice exercises">
-លំហាត់ Geometry សម្រាប់អនុវត្ត
-</p>
+<p id="hint"
+               class="hint">
+            </p>
+<!-- Answer Input -->
+<div class="answer-input">
+<label
+                    data-km="បញ្ចូលចម្លើយ"
+                    data-en="Enter your answer">
+បញ្ចូលចម្លើយ
+</label>
+<input
+                    type="number"
+                    id="userAnswer"
+                    placeholder="Answer">
 </div>
-<button class="download-button"
-                            onclick="comingSoon()">
-Download PDF
+<div class="answer-buttons">
+<button
+                    id="checkButton"
+                    class="btn btn-primary">
+✅
+                    <span
+                        data-km="ពិនិត្យចម្លើយ"
+                        data-en="Check Answer">
+ពិនិត្យចម្លើយ
+</span>
 </button>
-</article>
-</div>
-</section>
-<!-- =========================
-             CALCULATOR
-        ========================== -->
-<section id="calculator"
-                 class="section section-light">
-<div class="section-heading">
-<p class="section-label">
-                    MATH TOOL
-                </p>
-<h2
-                    data-km="🧮 ម៉ាស៊ីនគិតលេខ"
-                    data-en="🧮 Math Calculator">
-🧮 ម៉ាស៊ីនគិតលេខ
-</h2>
-</div>
-<div class="calculator">
-<input type="text"
-                       id="display"
-                       readonly
-                       placeholder="0">
-<div class="calculator-grid">
-<button onclick="clearDisplay()">
-                        C
-                    </button>
-<button onclick="deleteLast()">
-                        ⌫
-                    </button>
-<button onclick="addToDisplay('/')">
-                        ÷
-                    </button>
-<button onclick="addToDisplay('*')">
-                        ×
-                    </button>
-<button onclick="addToDisplay('7')">
-                        7
-                    </button>
-<button onclick="addToDisplay('8')">
-                        8
-                    </button>
-<button onclick="addToDisplay('9')">
-                        9
-                    </button>
-<button onclick="addToDisplay('-')">
-                        −
-                    </button>
-
-<button onclick="addToDisplay('4')">
-                        4
-                    </button>
-<button onclick="addToDisplay('5')">
-                        5
-                    </button>
-<button onclick="addToDisplay('6')">
-                        6
-                    </button>
-<button onclick="addToDisplay('+')">
-                        +
-                    </button>
-<button onclick="addToDisplay('1')">
-                        1
-                    </button>
-<button onclick="addToDisplay('2')">
-                        2
-                    </button>
-<button onclick="addToDisplay('3')">
-                        3
-                    </button>
-<button class="equals"
-                            onclick="calculate()">
-=
+<button
+                    id="showAnswerButton"
+                    class="btn btn-secondary">
+👁️
+                    <span
+                        data-km="មើលចម្លើយ"
+                        data-en="Show Answer">
+មើលចម្លើយ
+</span>
 </button>
-<button class="zero"
-                            onclick="addToDisplay('0')">
-0
-</button>
-<button onclick="addToDisplay('.')">
-                        .
-                    </button>
 </div>
+<div id="feedback"
+                 class="feedback">
+            </div>
 </div>
-</section>
-<!-- =========================
-             ABOUT
-        ========================== -->
-<section id="about"
-                 class="section">
-<div class="about">
-<div class="about-icon">
-                    👨‍🏫
-                </div>
+<!-- Score -->
+<div class="score-board">
 <div>
-<p class="section-label">
-                        ABOUT
-                    </p>
-<h2
-                        data-km="អំពីគ្រូ"
-                        data-en="About the Teacher">
-អំពីគ្រូ
-</h2>
-<p
-                        data-km="គ្រូបង្រៀនគណិតវិទ្យា ដែលផ្តោតលើការពន្យល់មេរៀនឱ្យសិស្សយល់បានច្បាស់ តាមរយៈឧទាហរណ៍ និងការអនុវត្តជាក់ស្តែង។"
-                        data-en="A mathematics teacher focused on helping students understand mathematics clearly through examples and practical exercises.">
-គ្រូបង្រៀនគណិតវិទ្យា
-                        ដែលផ្តោតលើការពន្យល់មេរៀន
-                        ឱ្យសិស្សយល់បានច្បាស់
-                        តាមរយៈឧទាហរណ៍
-                        និងការអនុវត្តជាក់ស្តែង។
-</p>
+                <strong id="score">
+                    0
+                </strong>
+<span
+                    data-km="ពិន្ទុ"
+                    data-en="Score">
+ពិន្ទុ
+</span>
+            </div>
+<div>
+                <strong id="totalQuestions">
+                    0
+                </strong>
+<span
+                    data-km="លំហាត់"
+                    data-en="Questions">
+លំហាត់
+</span>
+            </div>
+<div>
+                <strong id="correctAnswers">
+                    0
+                </strong>
+<span
+                    data-km="ត្រូវ"
+                    data-en="Correct">
+ត្រូវ
+</span>
+            </div>
 </div>
 </div>
 </section>
-<!-- =========================
-             CONTACT
-        ========================== -->
-<section id="contact"
-                 class="section section-light">
-<div class="section-heading">
-<p class="section-label">
-                    CONTACT
-                </p>
-<h2
-                    data-km="📞 ទំនាក់ទំនង"
-                    data-en="📞 Contact">
-📞 ទំនាក់ទំនង
-</h2>
-</div>
-<div class="contact-card">
-<h3>
-                    Math Teacher
-                </h3>
-<p>
-                    📧 your-email@example.com
-                </p>
-<p>
-                    📍 Cambodia
-                </p>
-<p
-                    data-km="📚 Mathematics Teacher & Educational Content Creator"
-                    data-en="📚 Mathematics Teacher & Educational Content Creator">
-📚 Mathematics Teacher &
-                    Educational Content Creator
-</p>
-</div>
-</section>
-</main>
-<!-- =========================
-         FOOTER
-    ========================== -->
-<footer>
-<p>
-            © 2026 Math Teacher.
-            All Rights Reserved.
-        </p>
-<p>
-            Mathematics • Education • Learning
-        </p>
-
-</footer>
-<script src="script.js"></script>
-</body>
-</html>
