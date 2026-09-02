@@ -1,392 +1,1063 @@
-/* =================================================
+/* =====================================================
    MATH TEACHER WEBSITE
    VERSION 2.3
-   Exercise Generator + Random Questions
-================================================= */
-/* =================================================
-   MOBILE MENU
-================================================= */
-const menuToggle =
-    document.getElementById("menuToggle");
-const navLinks =
-    document.getElementById("navLinks");
-if (menuToggle) {
-menuToggle.addEventListener(
-        "click",
-        function () {
-navLinks.classList.toggle("active");
-}
-    );
-}
-document
-    .querySelectorAll(".nav-links a")
-    .forEach(function (link) {
-link.addEventListener(
-            "click",
-            function () {
-navLinks.classList.remove("active");
-}
-        );
-});
-/* =================================================
-   DARK MODE
-================================================= */
-const themeToggle =
-    document.getElementById("themeToggle");
-if (themeToggle) {
-themeToggle.addEventListener(
-        "click",
-        function () {
-document.body.classList.toggle("dark");
-const dark =
-                document.body.classList.contains("dark");
-themeToggle.textContent =
-                dark ? "☀️" : "🌙";
-localStorage.setItem(
-                "theme",
-                dark ? "dark" : "light"
-            );
-}
-    );
-if (
-        localStorage.getItem("theme")
-        === "dark"
-    ) {
-document.body.classList.add("dark");
-themeToggle.textContent = "☀️";
-}
-}
-/* =================================================
-   LANGUAGE
-================================================= */
-const languageToggle =
-    document.getElementById("languageToggle");
+   STABLE JAVASCRIPT
+===================================================== */
+
+
+/* =====================================================
+   GLOBAL STATE
+===================================================== */
+
 let currentLanguage =
-    localStorage.getItem("language")
-    || "km";
-function changeLanguage(language) {
-currentLanguage = language;
-document
-        .querySelectorAll("[data-km]")
-        .forEach(function (element) {
-element.innerHTML =
-                element.getAttribute(
-                    "data-" + language
-                );
-});
-if (language === "km") {
-document.documentElement.lang = "km";
-if (languageToggle) {
-            languageToggle.textContent = "🇬🇧 EN";
-        }
-} else {
-document.documentElement.lang = "en";
-if (languageToggle) {
-            languageToggle.textContent = "🇰🇭 KH";
-        }
-}
-localStorage.setItem(
-        "language",
-        language
-    );
-}
-if (languageToggle) {
-languageToggle.addEventListener(
-        "click",
-        function () {
-changeLanguage(
-                currentLanguage === "km"
-                    ? "en"
-                    : "km"
-            );
-}
-    );
-}
-changeLanguage(currentLanguage);
-/* =================================================
-   EXERCISE GENERATOR
-================================================= */
-const topicSelect =
-    document.getElementById("topicSelect");
-const difficultySelect =
-    document.getElementById("difficultySelect");
-const generateButton =
-    document.getElementById("generateButton");
-const question =
-    document.getElementById("question");
-const questionNumber =
-    document.getElementById("questionNumber");
-const hint =
-    document.getElementById("hint");
-const hintButton =
-    document.getElementById("hintButton");
-const userAnswer =
-    document.getElementById("userAnswer");
-const checkButton =
-    document.getElementById("checkButton");
-const showAnswerButton =
-    document.getElementById("showAnswerButton");
-const feedback =
-    document.getElementById("feedback");
-const scoreElement =
-    document.getElementById("score");
-const totalQuestionsElement =
-    document.getElementById("totalQuestions");
-const correctAnswersElement =
-    document.getElementById("correctAnswers");
+    localStorage.getItem("language") || "km";
+
 let currentAnswer = null;
 let currentHint = "";
+
 let questionCount = 0;
 let correctCount = 0;
 let score = 0;
-/* =================================================
+
+
+/* =====================================================
+   DOM ELEMENTS
+===================================================== */
+
+const languageButton =
+    document.getElementById("languageButton");
+
+const darkModeButton =
+    document.getElementById("darkModeButton");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const mainNav =
+    document.getElementById("mainNav");
+
+
+/* Exercise elements */
+
+const topicSelect =
+    document.getElementById("topicSelect");
+
+const difficultySelect =
+    document.getElementById("difficultySelect");
+
+const generateButton =
+    document.getElementById("generateButton");
+
+const hintButton =
+    document.getElementById("hintButton");
+
+const checkButton =
+    document.getElementById("checkButton");
+
+const showAnswerButton =
+    document.getElementById("showAnswerButton");
+
+const questionNumber =
+    document.getElementById("questionNumber");
+
+const question =
+    document.getElementById("question");
+
+const hint =
+    document.getElementById("hint");
+
+const userAnswer =
+    document.getElementById("userAnswer");
+
+const feedback =
+    document.getElementById("feedback");
+
+const scoreElement =
+    document.getElementById("score");
+
+const totalQuestionsElement =
+    document.getElementById("totalQuestions");
+
+const correctAnswersElement =
+    document.getElementById("correctAnswers");
+
+
+/* Calculator */
+
+const calculatorDisplay =
+    document.getElementById("calculatorDisplay");
+
+const calculatorClear =
+    document.getElementById("calculatorClear");
+
+const calculatorEquals =
+    document.getElementById("calculatorEquals");
+
+
+/* =====================================================
+   LANGUAGE SYSTEM
+===================================================== */
+
+function updateLanguage() {
+
+    const elements =
+        document.querySelectorAll("[data-km][data-en]");
+
+    elements.forEach(element => {
+
+        if (currentLanguage === "km") {
+            element.innerHTML =
+                element.getAttribute("data-km");
+        } else {
+            element.innerHTML =
+                element.getAttribute("data-en");
+        }
+
+    });
+
+
+    /*
+       Update language button.
+       If current language is Khmer,
+       button shows EN.
+       If current language is English,
+       button shows KH.
+    */
+
+    if (languageButton) {
+
+        languageButton.textContent =
+            currentLanguage === "km"
+                ? "EN"
+                : "KH";
+
+    }
+
+
+    /*
+       Update select option text.
+    */
+
+    updateSelectOptions();
+
+
+    /*
+       Update current question label.
+    */
+
+    updateQuestionNumber();
+
+
+    /*
+       Update answer placeholder.
+    */
+
+    if (userAnswer) {
+
+        userAnswer.placeholder =
+            currentLanguage === "km"
+                ? "បញ្ចូលចម្លើយ"
+                : "Enter answer";
+
+    }
+
+
+    /*
+       Update document language.
+    */
+
+    document.documentElement.lang =
+        currentLanguage === "km"
+            ? "km"
+            : "en";
+
+}
+
+
+/* =====================================================
+   SELECT OPTION LANGUAGE
+===================================================== */
+
+function updateSelectOptions() {
+
+    const options =
+        document.querySelectorAll(
+            "select option[data-km][data-en]"
+        );
+
+    options.forEach(option => {
+
+        option.textContent =
+            currentLanguage === "km"
+                ? option.getAttribute("data-km")
+                : option.getAttribute("data-en");
+
+    });
+
+}
+
+
+/* =====================================================
+   LANGUAGE BUTTON
+===================================================== */
+
+if (languageButton) {
+
+    languageButton.addEventListener("click", () => {
+
+        currentLanguage =
+            currentLanguage === "km"
+                ? "en"
+                : "km";
+
+        localStorage.setItem(
+            "language",
+            currentLanguage
+        );
+
+        updateLanguage();
+
+        /*
+           If a question already exists,
+           regenerate it so its hint can use
+           the selected language.
+        */
+
+        if (currentAnswer !== null) {
+            generateQuestion();
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+function loadDarkMode() {
+
+    const darkMode =
+        localStorage.getItem("darkMode");
+
+    if (darkMode === "enabled") {
+
+        document.body.classList.add("dark-mode");
+
+        if (darkModeButton) {
+            darkModeButton.textContent = "☀️";
+        }
+
+    }
+
+}
+
+
+if (darkModeButton) {
+
+    darkModeButton.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark-mode");
+
+        const enabled =
+            document.body.classList.contains("dark-mode");
+
+        localStorage.setItem(
+            "darkMode",
+            enabled ? "enabled" : "disabled"
+        );
+
+        darkModeButton.textContent =
+            enabled ? "☀️" : "🌙";
+
+    });
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+if (menuButton && mainNav) {
+
+    menuButton.addEventListener("click", () => {
+
+        mainNav.classList.toggle("open");
+
+    });
+
+
+    const navLinks =
+        mainNav.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mainNav.classList.remove("open");
+
+        });
+
+    });
+
+}
+
+
+/* =====================================================
    RANDOM NUMBER
-================================================= */
+===================================================== */
+
 function randomNumber(min, max) {
-return Math.floor(
+
+    return Math.floor(
         Math.random() * (max - min + 1)
     ) + min;
+
 }
-/* =================================================
-   CREATE QUESTION
-================================================= */
+
+
+/* =====================================================
+   DIFFICULTY RANGE
+===================================================== */
+
+function getRange(difficulty) {
+
+    if (difficulty === "easy") {
+
+        return {
+            min: 1,
+            max: 20
+        };
+
+    }
+
+
+    if (difficulty === "medium") {
+
+        return {
+            min: 10,
+            max: 100
+        };
+
+    }
+
+
+    return {
+        min: 50,
+        max: 500
+    };
+
+}
+
+
+/* =====================================================
+   UPDATE QUESTION NUMBER
+===================================================== */
+
+function updateQuestionNumber() {
+
+    if (!questionNumber) {
+        return;
+    }
+
+    questionNumber.textContent =
+        currentLanguage === "km"
+            ? `សំណួរ ${questionCount}`
+            : `Question ${questionCount}`;
+
+}
+
+
+/* =====================================================
+   GENERATE QUESTION
+===================================================== */
+
 function generateQuestion() {
-const topic =
+
+    if (!topicSelect || !difficultySelect) {
+        return;
+    }
+
+
+    const topic =
         topicSelect.value;
-const difficulty =
+
+    const difficulty =
         difficultySelect.value;
-let a;
+
+
+    const range =
+        getRange(difficulty);
+
+
+    let a;
     let b;
     let answer;
-    let text;
+    let questionText;
     let hintText;
-/* ---------------------------------------------
-       ADDITION
-    --------------------------------------------- */
-if (topic === "addition") {
-if (difficulty === "easy") {
-a = randomNumber(1, 20);
-            b = randomNumber(1, 20);
-} else if (difficulty === "medium") {
-a = randomNumber(20, 100);
-            b = randomNumber(20, 100);
-} else {
-a = randomNumber(100, 999);
-            b = randomNumber(100, 999);
-}
-answer = a + b;
-text = `${a} + ${b} = ?`;
-hintText =
-            currentLanguage === "km"
-                ? "សូមបូកចំនួនទាំងពីរ។"
-                : "Add the two numbers.";
-}
-/* ---------------------------------------------
-       SUBTRACTION
-    --------------------------------------------- */
-else if (topic === "subtraction") {
-if (difficulty === "easy") {
-a = randomNumber(10, 30);
-            b = randomNumber(1, a);
-} else if (difficulty === "medium") {
-a = randomNumber(50, 150);
-            b = randomNumber(10, a);
-} else {
-a = randomNumber(200, 999);
-            b = randomNumber(50, a);
-}
-answer = a - b;
-text = `${a} − ${b} = ?`;
 
-hintText =
+
+    /* ================= ADDITION ================= */
+
+    if (topic === "addition") {
+
+        a = randomNumber(
+            range.min,
+            range.max
+        );
+
+        b = randomNumber(
+            range.min,
+            range.max
+        );
+
+        answer = a + b;
+
+        questionText =
+            `${a} + ${b} = ?`;
+
+        hintText =
             currentLanguage === "km"
-                ? "យកចំនួនទីមួយ ដកចំនួនទីពីរ។"
-                : "Subtract the second number from the first.";
-}
-/* ---------------------------------------------
-       MULTIPLICATION
-    --------------------------------------------- */
-else if (topic === "multiplication") {
-if (difficulty === "easy") {
-a = randomNumber(1, 10);
+                ? `គន្លឹះ៖ បូក ${a} ជាមួយ ${b}។`
+                : `Hint: Add ${a} and ${b}.`;
+
+    }
+
+
+    /* ================= SUBTRACTION ================= */
+
+    else if (topic === "subtraction") {
+
+        a = randomNumber(
+            range.min,
+            range.max
+        );
+
+        b = randomNumber(
+            range.min,
+            a
+        );
+
+        answer = a - b;
+
+        questionText =
+            `${a} − ${b} = ?`;
+
+        hintText =
+            currentLanguage === "km"
+                ? `គន្លឹះ៖ ដក ${b} ចេញពី ${a}។`
+                : `Hint: Subtract ${b} from ${a}.`;
+
+    }
+
+
+    /* ================= MULTIPLICATION ================= */
+
+    else if (topic === "multiplication") {
+
+        let maxMultiplier;
+
+        if (difficulty === "easy") {
+            maxMultiplier = 10;
+        }
+        else if (difficulty === "medium") {
+            maxMultiplier = 20;
+        }
+        else {
+            maxMultiplier = 50;
+        }
+
+
+        a = randomNumber(
+            2,
+            maxMultiplier
+        );
+
+        b = randomNumber(
+            2,
+            maxMultiplier
+        );
+
+        answer = a * b;
+
+        questionText =
+            `${a} × ${b} = ?`;
+
+        hintText =
+            currentLanguage === "km"
+                ? `គន្លឹះ៖ គិតពី ${a} × ${b}។`
+                : `Hint: Calculate ${a} × ${b}.`;
+
+    }
+
+
+    /* ================= DIVISION ================= */
+
+    else if (topic === "division") {
+
+        let divisor;
+
+        let quotient;
+
+        if (difficulty === "easy") {
+
+            divisor =
+                randomNumber(2, 10);
+
+            quotient =
+                randomNumber(2, 10);
+
+        }
+
+        else if (difficulty === "medium") {
+
+            divisor =
+                randomNumber(2, 15);
+
+            quotient =
+                randomNumber(2, 20);
+
+        }
+
+        else {
+
+            divisor =
+                randomNumber(3, 25);
+
+            quotient =
+                randomNumber(5, 30);
+
+        }
+
+
+        const dividend =
+            divisor * quotient;
+
+        answer = quotient;
+
+        questionText =
+            `${dividend} ÷ ${divisor} = ?`;
+
+        hintText =
+            currentLanguage === "km"
+                ? `គន្លឹះ៖ រកចំនួនដែលគុណនឹង ${divisor} ហើយបាន ${dividend}។`
+                : `Hint: Find the number that multiplied by ${divisor} gives ${dividend}.`;
+
+    }
+
+
+    /* ================= ALGEBRA ================= */
+
+    else if (topic === "algebra") {
+
+        let a;
+        let x;
+        let b;
+        let c;
+
+
+        if (difficulty === "easy") {
+
+            a = randomNumber(2, 5);
+
+            x = randomNumber(1, 10);
+
             b = randomNumber(1, 10);
-} else if (difficulty === "medium") {
-a = randomNumber(5, 20);
-            b = randomNumber(5, 20);
-} else {
-a = randomNumber(10, 50);
+
+        }
+
+        else if (difficulty === "medium") {
+
+            a = randomNumber(2, 10);
+
+            x = randomNumber(1, 20);
+
+            b = randomNumber(5, 30);
+
+        }
+
+        else {
+
+            a = randomNumber(3, 15);
+
+            x = randomNumber(1, 30);
+
             b = randomNumber(10, 50);
-}
-answer = a * b;
-text = `${a} × ${b} = ?`;
-hintText =
-            currentLanguage === "km"
-                ? "សូមគុណចំនួនទាំងពីរ។"
-                : "Multiply the two numbers.";
-}
-/* ---------------------------------------------
-       DIVISION
-    --------------------------------------------- */
-else if (topic === "division") {
-if (difficulty === "easy") {
-b = randomNumber(1, 10);
-answer = randomNumber(1, 10);
-} else if (difficulty === "medium") {
-b = randomNumber(2, 15);
-answer = randomNumber(2, 20);
-} else {
-b = randomNumber(5, 30);
-answer = randomNumber(5, 50);
-}
-a = b * answer;
-text = `${a} ÷ ${b} = ?`;
-hintText =
-            currentLanguage === "km"
-                ? "រកចំនួនដែលគុណនឹងចំនួនចែក ហើយបានចំនួនដើម។"
-                : "Find the number that multiplied by the divisor gives the dividend.";
-}
-/* ---------------------------------------------
-       ALGEBRA
-    --------------------------------------------- */
-else if (topic === "algebra") {
-if (difficulty === "easy") {
-a = randomNumber(1, 10);
-answer = randomNumber(1, 10);
-b = randomNumber(1, 20);
-} else if (difficulty === "medium") {
-a = randomNumber(2, 10);
-answer = randomNumber(1, 15);
-b = randomNumber(1, 30);
-} else {
-a = randomNumber(3, 15);
-answer = randomNumber(1, 20);
-b = randomNumber(5, 50);
-}
-/*
-         * ax + b = c
-         */
-const c =
-            a * answer + b;
-text =
+
+        }
+
+
+        c = a * x + b;
+
+        answer = x;
+
+        questionText =
             `${a}x + ${b} = ${c}`;
-hintText =
+
+        hintText =
             currentLanguage === "km"
-                ? `ដក ${b} ពីភាគីទាំងពីរ រួចចែកនឹង ${a}។`
-                : `Subtract ${b} from both sides, then divide by ${a}.`;
+                ? `គន្លឹះ៖ ដក ${b} ពីភាគីទាំងពីរ រួចចែកនឹង ${a}។`
+                : `Hint: Subtract ${b} from both sides, then divide by ${a}.`;
+
+    }
+
+
+    /* ================= DISPLAY ================= */
+
+    currentAnswer = answer;
+    currentHint = hintText;
+
+    questionCount++;
+
+    updateQuestionNumber();
+
+    question.textContent =
+        questionText;
+
+    hint.textContent =
+        currentHint;
+
+    hint.classList.add("hidden");
+
+    feedback.textContent = "";
+
+    feedback.className =
+        "feedback hidden";
+
+    userAnswer.value = "";
+
+    updateScoreBoard();
+
 }
-currentAnswer = answer;
-currentHint = hintText;
-questionCount++;
-questionNumber.textContent =
-        currentLanguage === "km"
-            ? `លំហាត់ទី ${questionCount}`
-            : `Question ${questionCount}`;
-question.textContent = text;
-hint.textContent = "";
-userAnswer.value = "";
-feedback.textContent = "";
-feedback.className = "feedback";
-totalQuestionsElement.textContent =
-        questionCount;
-correctAnswersElement.textContent =
-        correctCount;
-}
-/* =================================================
+
+
+/* =====================================================
    GENERATE BUTTON
-================================================= */
+===================================================== */
+
 if (generateButton) {
-generateButton.addEventListener(
+
+    generateButton.addEventListener(
         "click",
         generateQuestion
     );
+
 }
-/* =================================================
-   SHOW HINT
-================================================= */
+
+
+/* =====================================================
+   HINT BUTTON
+===================================================== */
+
 if (hintButton) {
-hintButton.addEventListener(
-        "click",
-        function () {
-hint.textContent =
-                currentHint;
+
+    hintButton.addEventListener("click", () => {
+
+        if (currentAnswer === null) {
+
+            if (currentLanguage === "km") {
+
+                hint.textContent =
+                    "សូមបង្កើតលំហាត់ជាមុនសិន។";
+
+            } else {
+
+                hint.textContent =
+                    "Please generate a question first.";
+
+            }
+
+            hint.classList.remove("hidden");
+
+            return;
+        }
+
+
+        hint.textContent =
+            currentHint;
+
+        hint.classList.remove("hidden");
+
+    });
+
 }
-    );
-}
-/* =================================================
+
+
+/* =====================================================
    CHECK ANSWER
-================================================= */
+===================================================== */
+
 if (checkButton) {
-checkButton.addEventListener(
-        "click",
-        function () {
-if (currentAnswer === null) {
-feedback.textContent =
-                    currentLanguage === "km"
-                        ? "សូមបង្កើតលំហាត់ជាមុនសិន។"
-                        : "Please generate a question first.";
-feedback.className =
-                    "feedback incorrect";
-return;
-            }
-const answer =
-                Number(userAnswer.value);
-if (
-                userAnswer.value === ""
-            ) {
-feedback.textContent =
-                    currentLanguage === "km"
-                        ? "សូមបញ្ចូលចម្លើយ។"
-                        : "Please enter your answer.";
-feedback.className =
-                    "feedback incorrect";
-return;
-            }
-if (answer === currentAnswer) {
-correctCount++;
-score += 10;
-feedback.textContent =
-                    currentLanguage === "km"
-                        ? "🎉 ត្រឹមត្រូវ! អស្ចារ្យណាស់!"
-                        : "🎉 Correct! Excellent!";
-feedback.className =
-                    "feedback correct";
-} else {
-feedback.textContent =
-                    currentLanguage === "km"
-                        ? "❌ មិនទាន់ត្រឹមត្រូវទេ។ សូមព្យាយាមម្តងទៀត។"
-                        : "❌ Not correct yet. Try again.";
-feedback.className =
-                    "feedback incorrect";
-}
-scoreElement.textContent =
-                score;
-correctAnswersElement.textContent =
-                correctCount;
-}
-    );
-}
-/* =================================================
-   SHOW ANSWER
-================================================= */
-if (showAnswerButton) {
-showAnswerButton.addEventListener(
-        "click",
-        function () {
-if (currentAnswer === null) {
-feedback.textContent =
-                    currentLanguage === "km"
-                        ? "សូមបង្កើតលំហាត់ជាមុនសិន។"
-                        : "Please generate a question first.";
-feedback.className =
-                    "feedback incorrect";
-return;
-            }
-feedback.textContent =
+
+    checkButton.addEventListener("click", () => {
+
+        if (currentAnswer === null) {
+
+            feedback.textContent =
                 currentLanguage === "km"
-                    ? `💡 ចម្លើយគឺ ${currentAnswer}`
-                    : `💡 The answer is ${currentAnswer}`;
-feedback.className =
+                    ? "សូមបង្កើតលំហាត់ជាមុនសិន។"
+                    : "Please generate a question first.";
+
+            feedback.className =
+                "feedback incorrect";
+
+            return;
+
+        }
+
+
+        const input =
+            userAnswer.value.trim();
+
+
+        if (input === "") {
+
+            feedback.textContent =
+                currentLanguage === "km"
+                    ? "សូមបញ្ចូលចម្លើយជាមុនសិន។"
+                    : "Please enter your answer.";
+
+            feedback.className =
+                "feedback incorrect";
+
+            return;
+
+        }
+
+
+        const numericAnswer =
+            Number(input);
+
+
+        if (numericAnswer === currentAnswer) {
+
+            correctCount++;
+
+            score += 10;
+
+            feedback.textContent =
+                currentLanguage === "km"
+                    ? "🎉 ត្រឹមត្រូវ! អស្ចារ្យណាស់! +10 ពិន្ទុ"
+                    : "🎉 Correct! Excellent! +10 points";
+
+            feedback.className =
                 "feedback correct";
+
+        }
+
+        else {
+
+            feedback.textContent =
+                currentLanguage === "km"
+                    ? "❌ មិនត្រឹមត្រូវទេ។ សូមព្យាយាមម្តងទៀត។"
+                    : "❌ Incorrect. Please try again.";
+
+            feedback.className =
+                "feedback incorrect";
+
+        }
+
+
+        updateScoreBoard();
+
+    });
+
 }
+
+
+/* =====================================================
+   SHOW ANSWER
+===================================================== */
+
+if (showAnswerButton) {
+
+    showAnswerButton.addEventListener("click", () => {
+
+        if (currentAnswer === null) {
+
+            feedback.textContent =
+                currentLanguage === "km"
+                    ? "សូមបង្កើតលំហាត់ជាមុនសិន។"
+                    : "Please generate a question first.";
+
+            feedback.className =
+                "feedback incorrect";
+
+            return;
+
+        }
+
+
+        feedback.textContent =
+            currentLanguage === "km"
+                ? `ចម្លើយត្រឹមត្រូវគឺ៖ ${currentAnswer}`
+                : `The correct answer is: ${currentAnswer}`;
+
+        feedback.className =
+            "feedback correct";
+
+    });
+
+}
+
+
+/* =====================================================
+   UPDATE SCORE BOARD
+===================================================== */
+
+function updateScoreBoard() {
+
+    if (scoreElement) {
+        scoreElement.textContent = score;
+    }
+
+    if (totalQuestionsElement) {
+        totalQuestionsElement.textContent =
+            questionCount;
+    }
+
+    if (correctAnswersElement) {
+        correctAnswersElement.textContent =
+            correctCount;
+    }
+
+}
+
+
+/* =====================================================
+   ENTER KEY = CHECK ANSWER
+===================================================== */
+
+if (userAnswer) {
+
+    userAnswer.addEventListener("keydown", event => {
+
+        if (event.key === "Enter") {
+
+            checkButton.click();
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   WORKSHEET BUTTONS
+===================================================== */
+
+const worksheetButtons =
+    document.querySelectorAll(
+        ".worksheet-card .outline-button"
     );
+
+
+worksheetButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        alert(
+            currentLanguage === "km"
+                ? "សន្លឹកកិច្ចការនឹងមានក្នុង Version បន្ទាប់។"
+                : "Worksheets will be available in a future version."
+        );
+
+    });
+
+});
+
+
+/* =====================================================
+   GRADE BUTTONS
+===================================================== */
+
+const gradeButtons =
+    document.querySelectorAll(
+        ".grade-card .outline-button"
+    );
+
+
+gradeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        alert(
+            currentLanguage === "km"
+                ? "មេរៀនសម្រាប់ថ្នាក់នេះនឹងត្រូវបន្ថែមនៅ Version បន្ទាប់។"
+                : "Lessons for this grade will be added in a future version."
+        );
+
+    });
+
+});
+
+
+/* =====================================================
+   CALCULATOR
+===================================================== */
+
+let calculatorExpression = "";
+
+
+/*
+   Calculator number/operator buttons
+*/
+
+const calculatorButtons =
+    document.querySelectorAll(
+        ".calculator-buttons button[data-value]"
+    );
+
+
+calculatorButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const value =
+            button.getAttribute("data-value");
+
+
+        calculatorExpression += value;
+
+        calculatorDisplay.value =
+            calculatorExpression;
+
+    });
+
+});
+
+
+/* =====================================================
+   CALCULATOR CLEAR
+===================================================== */
+
+if (calculatorClear) {
+
+    calculatorClear.addEventListener("click", () => {
+
+        calculatorExpression = "";
+
+        calculatorDisplay.value = "";
+
+    });
+
 }
+
+
+/* =====================================================
+   CALCULATOR EQUALS
+===================================================== */
+
+if (calculatorEquals) {
+
+    calculatorEquals.addEventListener("click", () => {
+
+        if (!calculatorExpression) {
+            return;
+        }
+
+
+        /*
+           Allow only:
+           numbers
+           decimal point
+           + - * /
+           parentheses
+        */
+
+        const safeExpression =
+            /^[0-9+\-*/().\s]+$/;
+
+
+        if (!safeExpression.test(
+            calculatorExpression
+        )) {
+
+            calculatorDisplay.value =
+                "Error";
+
+            calculatorExpression = "";
+
+            return;
+
+        }
+
+
+        try {
+
+            const result =
+                Function(
+                    `"use strict"; return (${calculatorExpression})`
+                )();
+
+
+            if (
+                typeof result !== "number" ||
+                !Number.isFinite(result)
+            ) {
+
+                calculatorDisplay.value =
+                    "Error";
+
+                calculatorExpression = "";
+
+                return;
+
+            }
+
+
+            calculatorDisplay.value =
+                result;
+
+            calculatorExpression =
+                String(result);
+
+        }
+
+        catch (error) {
+
+            calculatorDisplay.value =
+                "Error";
+
+            calculatorExpression = "";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   CURRENT YEAR
+===================================================== */
+
+const currentYear =
+    document.getElementById("currentYear");
+
+
+if (currentYear) {
+
+    currentYear.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =====================================================
+   INITIALIZATION
+===================================================== */
+
+loadDarkMode();
+
+updateLanguage();
+
+/*
+   Generate the first question automatically.
+*/
+
+generateQuestion();
+```
