@@ -1,338 +1,766 @@
+# Version 2.1 — Professional Math Teacher Website
+
+## 1. index.html
+
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="km">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Math Teacher | Learn Mathematics</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="description"
+          content="Professional Mathematics Learning Website">
+
+    <title>Math Teacher | Mathematics Learning</title>
+
+    <link rel="stylesheet"
+          href="style.css">
 </head>
 
 <body>
 
-    <!-- Navigation -->
+    <!-- =========================
+         HEADER
+    ========================== -->
+
     <header class="header">
+
         <nav class="navbar">
 
-            <div class="logo">
-                📐 Math Teacher
-            </div>
+            <a href="#home"
+               class="logo">
+                📐 Math<span>Teacher</span>
+            </a>
 
-            <button class="menu-toggle" onclick="toggleMenu()">
+            <button class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Open Menu">
                 ☰
             </button>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">🏠 Home</a></li>
-                <li><a href="#lessons">📚 Math Lessons</a></li>
-                <li><a href="#exercises">📝 Exercises</a></li>
-                <li><a href="#worksheets">📄 Worksheets</a></li>
-                <li><a href="#calculator">🧮 Calculator</a></li>
-                <li><a href="#contact">📞 Contact</a></li>
+            <ul class="nav-links"
+                id="navLinks">
+
+                <li>
+                    <a href="#home"
+                       data-km="ទំព័រដើម"
+                       data-en="Home">
+                        ទំព័រដើម
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#lessons"
+                       data-km="មេរៀន"
+                       data-en="Lessons">
+                        មេរៀន
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#exercises"
+                       data-km="លំហាត់"
+                       data-en="Exercises">
+                        លំហាត់
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#worksheets"
+                       data-km="សន្លឹកកិច្ចការ"
+                       data-en="Worksheets">
+                        សន្លឹកកិច្ចការ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#calculator"
+                       data-km="ម៉ាស៊ីនគិតលេខ"
+                       data-en="Calculator">
+                        ម៉ាស៊ីនគិតលេខ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about"
+                       data-km="អំពីគ្រូ"
+                       data-en="About">
+                        អំពីគ្រូ
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact"
+                       data-km="ទំនាក់ទំនង"
+                       data-en="Contact">
+                        ទំនាក់ទំនង
+                    </a>
+                </li>
+
             </ul>
 
+            <div class="nav-actions">
+
+                <button id="languageToggle"
+                        class="icon-button">
+                    🇬🇧 EN
+                </button>
+
+                <button id="themeToggle"
+                        class="icon-button"
+                        aria-label="Toggle dark mode">
+                    🌙
+                </button>
+
+            </div>
+
         </nav>
+
     </header>
 
 
-    <!-- Home -->
-    <section id="home" class="hero">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-        <div class="hero-content">
+    <main>
 
-            <p class="welcome">WELCOME TO MY MATH CLASS</p>
+        <section id="home"
+                 class="hero">
 
-            <h1>
-                Learn Mathematics
-                <span>Step by Step</span>
-            </h1>
+            <div class="hero-content">
 
-            <p>
-                Learn mathematics through clear lessons,
-                practical examples, exercises and worksheets.
-            </p>
+                <div class="badge">
+                    📚 Mathematics Education
+                </div>
 
-            <div class="hero-buttons">
-                <a href="#lessons" class="btn primary">
-                    Explore Lessons
-                </a>
+                <h1
+                    data-km="រៀនគណិតវិទ្យា<br><span>យ៉ាងងាយ និងច្បាស់លាស់</span>"
+                    data-en="Learn Mathematics<br><span>Clearly & Step by Step</span>">
 
-                <a href="#calculator" class="btn secondary">
-                    Open Calculator
-                </a>
-            </div>
+                    រៀនគណិតវិទ្យា
+                    <br>
+                    <span>
+                        យ៉ាងងាយ និងច្បាស់លាស់
+                    </span>
 
-        </div>
+                </h1>
 
-    </section>
+                <p
+                    data-km="មេរៀន លំហាត់ និងសន្លឹកកិច្ចការ សម្រាប់ជួយសិស្សឱ្យយល់ និងស្រឡាញ់គណិតវិទ្យា។"
+                    data-en="Lessons, exercises and worksheets designed to help students understand and enjoy mathematics.">
 
-
-    <!-- Math Lessons -->
-    <section id="lessons" class="section">
-
-        <div class="section-title">
-
-            <p>LEARNING</p>
-
-            <h2>📚 Math Lessons</h2>
-
-            <span>
-                Mathematics lessons from basic to advanced
-            </span>
-
-        </div>
-
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="card-icon">➕</div>
-
-                <h3>Algebra</h3>
-
-                <p>
-                    Learn equations, expressions,
-                    factoring and algebraic functions.
+                    មេរៀន លំហាត់ និងសន្លឹកកិច្ចការ
+                    សម្រាប់ជួយសិស្សឱ្យយល់
+                    និងស្រឡាញ់គណិតវិទ្យា។
                 </p>
 
-                <button onclick="showMessage('Algebra lessons are coming soon!')">
-                    Learn More
+                <div class="hero-buttons">
+
+                    <a href="#lessons"
+                       class="btn btn-primary"
+                       data-km="📚 ចាប់ផ្តើមរៀន"
+                       data-en="📚 Start Learning">
+
+                        📚 ចាប់ផ្តើមរៀន
+
+                    </a>
+
+                    <a href="#calculator"
+                       class="btn btn-secondary"
+                       data-km="🧮 ប្រើម៉ាស៊ីនគិតលេខ"
+                       data-en="🧮 Open Calculator">
+
+                        🧮 ប្រើម៉ាស៊ីនគិតលេខ
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LESSONS
+        ========================== -->
+
+        <section id="lessons"
+                 class="section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    LEARNING
+                </p>
+
+                <h2
+                    data-km="📚 មេរៀនគណិតវិទ្យា"
+                    data-en="📚 Mathematics Lessons">
+
+                    📚 មេរៀនគណិតវិទ្យា
+
+                </h2>
+
+                <p
+                    data-km="ជ្រើសរើសកម្រិតសិក្សារបស់អ្នក"
+                    data-en="Choose your learning level">
+
+                    ជ្រើសរើសកម្រិតសិក្សារបស់អ្នក
+
+                </p>
+
+            </div>
+
+
+            <div class="grade-grid">
+
+                <article class="grade-card">
+
+                    <div class="grade-number">
+                        7
+                    </div>
+
+                    <h3>Grade 7</h3>
+
+                    <p
+                        data-km="គ្រឹះគណិតវិទ្យា និង Algebra"
+                        data-en="Mathematics foundations and Algebra">
+
+                        គ្រឹះគណិតវិទ្យា និង Algebra
+
+                    </p>
+
+                    <button class="outline-button"
+                            onclick="comingSoon()">
+
+                        Explore →
+
+                    </button>
+
+                </article>
+
+
+                <article class="grade-card">
+
+                    <div class="grade-number">
+                        8
+                    </div>
+
+                    <h3>Grade 8</h3>
+
+                    <p
+                        data-km="Algebra, Geometry និង Exponents"
+                        data-en="Algebra, Geometry and Exponents">
+
+                        Algebra, Geometry និង Exponents
+
+                    </p>
+
+                    <button class="outline-button"
+                            onclick="comingSoon()">
+
+                        Explore →
+
+                    </button>
+
+                </article>
+
+
+                <article class="grade-card">
+
+                    <div class="grade-number">
+                        9
+                    </div>
+
+                    <h3>Grade 9</h3>
+
+                    <p
+                        data-km="Algebra, Geometry និង Functions"
+                        data-en="Algebra, Geometry and Functions">
+
+                        Algebra, Geometry និង Functions
+
+                    </p>
+
+                    <button class="outline-button"
+                            onclick="comingSoon()">
+
+                        Explore →
+
+                    </button>
+
+                </article>
+
+
+                <article class="grade-card">
+
+                    <div class="grade-number">
+                        10
+                    </div>
+
+                    <h3>Grade 10</h3>
+
+                    <p
+                        data-km="Functions, Trigonometry និង Geometry"
+                        data-en="Functions, Trigonometry and Geometry">
+
+                        Functions, Trigonometry និង Geometry
+
+                    </p>
+
+                    <button class="outline-button"
+                            onclick="comingSoon()">
+
+                        Explore →
+
+                    </button>
+
+                </article>
+
+
+                <article class="grade-card">
+
+                    <div class="grade-number">
+                        11
+                    </div>
+
+                    <h3>Grade 11</h3>
+
+                    <p
+                        data-km="Calculus, Probability និង Advanced Mathematics"
+                        data-en="Calculus, Probability and Advanced Mathematics">
+
+                        Calculus, Probability និង Advanced Mathematics
+
+                    </p>
+
+                    <button class="outline-button"
+                            onclick="comingSoon()">
+
+                        Explore →
+
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EXERCISES
+        ========================== -->
+
+        <section id="exercises"
+                 class="section section-light">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    PRACTICE
+                </p>
+
+                <h2
+                    data-km="📝 លំហាត់គណិតវិទ្យា"
+                    data-en="📝 Mathematics Exercises">
+
+                    📝 លំហាត់គណិតវិទ្យា
+
+                </h2>
+
+                <p
+                    data-km="អនុវត្តជាមួយលំហាត់គំរូ"
+                    data-en="Practice with sample exercises">
+
+                    អនុវត្តជាមួយលំហាត់គំរូ
+
+                </p>
+
+            </div>
+
+
+            <div class="exercise-card">
+
+                <span class="exercise-label">
+                    Algebra
+                </span>
+
+                <h3
+                    data-km="ដោះស្រាយសមីការ"
+                    data-en="Solve the Equation">
+
+                    ដោះស្រាយសមីការ
+
+                </h3>
+
+                <div class="equation">
+                    2x + 5 = 17
+                </div>
+
+                <button class="btn btn-primary"
+                        id="answerButton">
+
+                    💡
+                    <span
+                        data-km="បង្ហាញចម្លើយ"
+                        data-en="Show Answer">
+
+                        បង្ហាញចម្លើយ
+
+                    </span>
+
                 </button>
-            </div>
 
-
-            <div class="card">
-                <div class="card-icon">📐</div>
-
-                <h3>Geometry</h3>
-
-                <p>
-                    Study triangles, circles,
-                    angles and geometric properties.
+                <p id="answer"
+                   class="answer">
                 </p>
 
-                <button onclick="showMessage('Geometry lessons are coming soon!')">
-                    Learn More
-                </button>
             </div>
 
+        </section>
 
-            <div class="card">
-                <div class="card-icon">∫</div>
 
-                <h3>Calculus</h3>
+        <!-- =========================
+             WORKSHEETS
+        ========================== -->
 
-                <p>
-                    Learn limits, derivatives,
-                    integrals and applications.
+        <section id="worksheets"
+                 class="section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    RESOURCES
                 </p>
 
-                <button onclick="showMessage('Calculus lessons are coming soon!')">
-                    Learn More
-                </button>
+                <h2
+                    data-km="📄 សន្លឹកកិច្ចការ"
+                    data-en="📄 Worksheets">
+
+                    📄 សន្លឹកកិច្ចការ
+
+                </h2>
+
+                <p
+                    data-km="ធនធានសម្រាប់សិស្សអនុវត្ត"
+                    data-en="Resources for student practice">
+
+                    ធនធានសម្រាប់សិស្សអនុវត្ត
+
+                </p>
+
             </div>
 
-        </div>
 
-    </section>
+            <div class="worksheet-list">
+
+                <article class="worksheet">
+
+                    <div class="worksheet-icon">
+                        📄
+                    </div>
+
+                    <div class="worksheet-info">
+
+                        <h3>
+                            Algebra Worksheet
+                        </h3>
+
+                        <p
+                            data-km="លំហាត់ Algebra មូលដ្ឋាន"
+                            data-en="Basic Algebra exercises">
+
+                            លំហាត់ Algebra មូលដ្ឋាន
+
+                        </p>
+
+                    </div>
+
+                    <button class="download-button"
+                            onclick="comingSoon()">
+
+                        Download PDF
+
+                    </button>
+
+                </article>
 
 
-    <!-- Exercises -->
-    <section id="exercises" class="section light">
+                <article class="worksheet">
 
-        <div class="section-title">
+                    <div class="worksheet-icon">
+                        📐
+                    </div>
 
-            <p>PRACTICE</p>
+                    <div class="worksheet-info">
 
-            <h2>📝 Exercises</h2>
+                        <h3>
+                            Geometry Worksheet
+                        </h3>
 
-            <span>
-                Practice mathematics and improve your skills
-            </span>
+                        <p
+                            data-km="លំហាត់ Geometry សម្រាប់អនុវត្ត"
+                            data-en="Geometry practice exercises">
 
-        </div>
+                            លំហាត់ Geometry សម្រាប់អនុវត្ត
 
+                        </p>
 
-        <div class="exercise-box">
+                    </div>
 
-            <h3>Example Exercise</h3>
+                    <button class="download-button"
+                            onclick="comingSoon()">
 
-            <p>
-                Solve the equation:
-            </p>
+                        Download PDF
 
-            <div class="math-question">
-                2x + 5 = 17
+                    </button>
+
+                </article>
+
             </div>
 
-            <button
-                class="btn primary"
-                onclick="showAnswer()">
-                Show Answer
-            </button>
-
-            <p id="answer" class="answer"></p>
-
-        </div>
-
-    </section>
+        </section>
 
 
-    <!-- Worksheets -->
-    <section id="worksheets" class="section">
+        <!-- =========================
+             CALCULATOR
+        ========================== -->
 
-        <div class="section-title">
+        <section id="calculator"
+                 class="section section-light">
 
-            <p>RESOURCES</p>
+            <div class="section-heading">
 
-            <h2>📄 Worksheets</h2>
+                <p class="section-label">
+                    MATH TOOL
+                </p>
 
-            <span>
-                Download mathematics worksheets for practice
-            </span>
+                <h2
+                    data-km="🧮 ម៉ាស៊ីនគិតលេខ"
+                    data-en="🧮 Math Calculator">
 
-        </div>
+                    🧮 ម៉ាស៊ីនគិតលេខ
+
+                </h2>
+
+            </div>
 
 
-        <div class="worksheet-box">
+            <div class="calculator">
 
-            <div>
-                <h3>📄 Algebra Worksheet</h3>
+                <input type="text"
+                       id="display"
+                       readonly
+                       placeholder="0">
+
+
+                <div class="calculator-grid">
+
+                    <button onclick="clearDisplay()">
+                        C
+                    </button>
+
+                    <button onclick="deleteLast()">
+                        ⌫
+                    </button>
+
+                    <button onclick="addToDisplay('/')">
+                        ÷
+                    </button>
+
+                    <button onclick="addToDisplay('*')">
+                        ×
+                    </button>
+
+
+                    <button onclick="addToDisplay('7')">
+                        7
+                    </button>
+
+                    <button onclick="addToDisplay('8')">
+                        8
+                    </button>
+
+                    <button onclick="addToDisplay('9')">
+                        9
+                    </button>
+
+                    <button onclick="addToDisplay('-')">
+                        −
+                    </button>
+
+
+                    <button onclick="addToDisplay('4')">
+                        4
+                    </button>
+
+                    <button onclick="addToDisplay('5')">
+                        5
+                    </button>
+
+                    <button onclick="addToDisplay('6')">
+                        6
+                    </button>
+
+                    <button onclick="addToDisplay('+')">
+                        +
+                    </button>
+
+
+                    <button onclick="addToDisplay('1')">
+                        1
+                    </button>
+
+                    <button onclick="addToDisplay('2')">
+                        2
+                    </button>
+
+                    <button onclick="addToDisplay('3')">
+                        3
+                    </button>
+
+                    <button class="equals"
+                            onclick="calculate()">
+
+                        =
+
+                    </button>
+
+
+                    <button class="zero"
+                            onclick="addToDisplay('0')">
+
+                        0
+
+                    </button>
+
+                    <button onclick="addToDisplay('.')">
+                        .
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="about"
+                 class="section">
+
+            <div class="about">
+
+                <div class="about-icon">
+                    👨‍🏫
+                </div>
+
+                <div>
+
+                    <p class="section-label">
+                        ABOUT
+                    </p>
+
+                    <h2
+                        data-km="អំពីគ្រូ"
+                        data-en="About the Teacher">
+
+                        អំពីគ្រូ
+
+                    </h2>
+
+                    <p
+                        data-km="គ្រូបង្រៀនគណិតវិទ្យា ដែលផ្តោតលើការពន្យល់មេរៀនឱ្យសិស្សយល់បានច្បាស់ តាមរយៈឧទាហរណ៍ និងការអនុវត្តជាក់ស្តែង។"
+                        data-en="A mathematics teacher focused on helping students understand mathematics clearly through examples and practical exercises.">
+
+                        គ្រូបង្រៀនគណិតវិទ្យា
+                        ដែលផ្តោតលើការពន្យល់មេរៀន
+                        ឱ្យសិស្សយល់បានច្បាស់
+                        តាមរយៈឧទាហរណ៍
+                        និងការអនុវត្តជាក់ស្តែង។
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact"
+                 class="section section-light">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CONTACT
+                </p>
+
+                <h2
+                    data-km="📞 ទំនាក់ទំនង"
+                    data-en="📞 Contact">
+
+                    📞 ទំនាក់ទំនង
+
+                </h2>
+
+            </div>
+
+
+            <div class="contact-card">
+
+                <h3>
+                    Math Teacher
+                </h3>
 
                 <p>
-                    Basic algebra exercises for students.
+                    📧 your-email@example.com
                 </p>
-            </div>
-
-            <button
-                onclick="showMessage('Worksheet download will be available soon!')">
-                Download
-            </button>
-
-        </div>
-
-
-        <div class="worksheet-box">
-
-            <div>
-                <h3>📄 Geometry Worksheet</h3>
 
                 <p>
-                    Practice triangles, angles and circles.
+                    📍 Cambodia
                 </p>
-            </div>
 
-            <button
-                onclick="showMessage('Worksheet download will be available soon!')">
-                Download
-            </button>
+                <p
+                    data-km="📚 Mathematics Teacher & Educational Content Creator"
+                    data-en="📚 Mathematics Teacher & Educational Content Creator">
 
-        </div>
+                    📚 Mathematics Teacher &
+                    Educational Content Creator
 
-    </section>
-
-
-    <!-- Calculator -->
-    <section id="calculator" class="section light">
-
-        <div class="section-title">
-
-            <p>TOOLS</p>
-
-            <h2>🧮 Math Calculator</h2>
-
-            <span>
-                Calculate basic mathematical operations
-            </span>
-
-        </div>
-
-
-        <div class="calculator">
-
-            <input
-                type="text"
-                id="display"
-                readonly
-                placeholder="0"
-            >
-
-            <div class="calculator-buttons">
-
-                <button onclick="clearDisplay()">C</button>
-                <button onclick="deleteLast()">⌫</button>
-                <button onclick="addToDisplay('/')">÷</button>
-                <button onclick="addToDisplay('*')">×</button>
-
-                <button onclick="addToDisplay('7')">7</button>
-                <button onclick="addToDisplay('8')">8</button>
-                <button onclick="addToDisplay('9')">9</button>
-                <button onclick="addToDisplay('-')">−</button>
-
-                <button onclick="addToDisplay('4')">4</button>
-                <button onclick="addToDisplay('5')">5</button>
-                <button onclick="addToDisplay('6')">6</button>
-                <button onclick="addToDisplay('+')">+</button>
-
-                <button onclick="addToDisplay('1')">1</button>
-                <button onclick="addToDisplay('2')">2</button>
-                <button onclick="addToDisplay('3')">3</button>
-                <button onclick="calculate()">=</button>
-
-                <button
-                    class="zero"
-                    onclick="addToDisplay('0')">
-                    0
-                </button>
-
-                <button onclick="addToDisplay('.')">.</button>
+                </p>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact" class="section contact">
-
-        <div class="section-title">
-
-            <p>GET IN TOUCH</p>
-
-            <h2>📞 Contact</h2>
-
-            <span>
-                Contact me for mathematics lessons and resources.
-            </span>
-
-        </div>
+    </main>
 
 
-        <div class="contact-box">
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-            <h3>Math Teacher</h3>
-
-            <p>📧 Email: your-email@example.com</p>
-
-            <p>📍 Cambodia</p>
-
-            <p>
-                📚 Mathematics Teacher & Educational Content Creator
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- Footer -->
     <footer>
 
         <p>
-            © 2026 Math Teacher. All Rights Reserved.
+            © 2026 Math Teacher.
+            All Rights Reserved.
         </p>
 
         <p>
@@ -345,4 +773,1214 @@
     <script src="script.js"></script>
 
 </body>
+
 </html>
+```
+
+---
+
+# 2. style.css
+
+```css
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Arial,
+        "Noto Sans Khmer",
+        sans-serif;
+
+    line-height: 1.7;
+    color: #1e293b;
+    background: #ffffff;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255,255,255,0.95);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 2px 15px rgba(0,0,0,0.08);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 72px;
+
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+
+    color: #2563eb;
+}
+
+.logo span {
+    color: #0f172a;
+}
+
+.nav-links {
+    display: flex;
+
+    list-style: none;
+
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #334155;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-button {
+    border: 1px solid #e2e8f0;
+
+    background: white;
+
+    padding: 8px 10px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+
+    border: none;
+
+    background: none;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #dbeafe,
+            transparent 40%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fbff,
+            #ffffff
+        );
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 70px);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+
+    color: #0f172a;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #64748b;
+
+    font-size: 19px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 22px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+.btn-primary {
+    background: #2563eb;
+
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+
+    color: #2563eb;
+
+    border: 2px solid #2563eb;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 90px 20px;
+}
+
+.section-light {
+    max-width: none;
+
+    background: #f8fafc;
+}
+
+.section-heading {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: #2563eb;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    margin: 8px 0;
+
+    font-size: 38px;
+
+    color: #0f172a;
+}
+
+.section-heading p:last-child {
+    color: #64748b;
+}
+
+
+/* =========================
+   GRADE CARDS
+========================= */
+
+.grade-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, 1fr);
+
+    gap: 18px;
+}
+
+.grade-card {
+    background: white;
+
+    padding: 25px 18px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,0.07);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.grade-card:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px rgba(15,23,42,0.12);
+}
+
+.grade-number {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 25px;
+
+    font-weight: 800;
+}
+
+.grade-card h3 {
+    margin-bottom: 8px;
+
+    font-size: 20px;
+}
+
+.grade-card p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    min-height: 65px;
+}
+
+.outline-button {
+    margin-top: 15px;
+
+    padding: 8px 15px;
+
+    border: 1px solid #2563eb;
+
+    border-radius: 7px;
+
+    background: white;
+
+    color: #2563eb;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   EXERCISE
+========================= */
+
+.exercise-card {
+    max-width: 650px;
+
+    margin: auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+}
+
+.exercise-label {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.exercise-card h3 {
+    margin: 18px 0;
+}
+
+.equation {
+    margin: 25px 0;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+.answer {
+    margin-top: 20px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #16a34a;
+}
+
+
+/* =========================
+   WORKSHEETS
+========================= */
+
+.worksheet-list {
+    max-width: 900px;
+
+    margin: auto;
+}
+
+.worksheet {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px;
+
+    margin-bottom: 15px;
+
+    background: white;
+
+    border-radius: 13px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.06);
+}
+
+.worksheet-icon {
+    font-size: 35px;
+}
+
+.worksheet-info {
+    flex: 1;
+}
+
+.worksheet-info p {
+    color: #64748b;
+}
+
+.download-button {
+    padding: 10px 16px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+.calculator {
+    width: 350px;
+
+    max-width: 100%;
+
+    margin: auto;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: white;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.1);
+}
+
+#display {
+    width: 100%;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 9px;
+
+    font-size: 25px;
+
+    text-align: right;
+
+    background: #f8fafc;
+}
+
+.calculator-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+}
+
+.calculator-grid button {
+    padding: 17px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #e2e8f0;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.calculator-grid button:hover {
+    opacity: 0.75;
+}
+
+.calculator-grid .equals {
+    background: #2563eb;
+
+    color: white;
+}
+
+.calculator-grid .zero {
+    grid-column: span 2;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 900px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 40px;
+
+    border-radius: 18px;
+
+    background: #f8fafc;
+}
+
+.about-icon {
+    font-size: 80px;
+}
+
+.about h2 {
+    margin: 5px 0 15px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-card {
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.07);
+}
+
+.contact-card p {
+    margin: 8px 0;
+
+    color: #64748b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    background: #0f172a;
+
+    color: white;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark {
+    background: #0f172a;
+
+    color: #e2e8f0;
+}
+
+body.dark .header {
+    background: rgba(15,23,42,0.95);
+}
+
+body.dark .logo span,
+body.dark .nav-links a,
+body.dark .hero h1,
+body.dark .section-heading h2 {
+    color: #e2e8f0;
+}
+
+body.dark .nav-links a:hover {
+    color: #60a5fa;
+}
+
+body.dark .icon-button {
+    background: #1e293b;
+
+    border-color: #334155;
+
+    color: white;
+}
+
+body.dark .hero {
+    background:
+        radial-gradient(
+            circle at top right,
+            #1e3a5f,
+            transparent 45%
+        ),
+
+        #0f172a;
+}
+
+body.dark .hero h1 span {
+    color: #60a5fa;
+}
+
+body.dark .hero p,
+body.dark .section-heading p:last-child {
+    color: #94a3b8;
+}
+
+body.dark .grade-card,
+body.dark .exercise-card,
+body.dark .worksheet,
+body.dark .calculator,
+body.dark .contact-card {
+    background: #1e293b;
+
+    color: #e2e8f0;
+}
+
+body.dark .grade-card p,
+body.dark .worksheet-info p,
+body.dark .contact-card p {
+    color: #94a3b8;
+}
+
+body.dark .outline-button {
+    background: #1e293b;
+
+    color: #60a5fa;
+
+    border-color: #60a5fa;
+}
+
+body.dark .equation,
+body.dark #display,
+body.dark .about {
+    background: #0f172a;
+
+    color: #e2e8f0;
+}
+
+body.dark .calculator-grid button {
+    background: #334155;
+
+    color: white;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        background: white;
+
+        box-shadow:
+            0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    body.dark .nav-links {
+        background: #0f172a;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+
+        margin-right: 10px;
+    }
+
+    .grade-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        min-height: 580px;
+
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .section {
+        padding: 70px 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .grade-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .worksheet {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .about {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 30px 20px;
+    }
+
+    .about-icon {
+        font-size: 60px;
+    }
+
+    .calculator {
+        width: 100%;
+    }
+
+    .nav-actions {
+        gap: 4px;
+    }
+
+    .icon-button {
+        padding: 7px;
+    }
+}
+```
+
+---
+
+# 3. script.js
+
+```javascript
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle =
+    document.getElementById("menuToggle");
+
+const navLinks =
+    document.getElementById("navLinks");
+
+
+menuToggle.addEventListener(
+    "click",
+    function () {
+
+        navLinks.classList.toggle("active");
+
+    }
+);
+
+
+/* Close mobile menu
+   after clicking a link
+*/
+
+document
+    .querySelectorAll(".nav-links a")
+    .forEach(function (link) {
+
+        link.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.remove("active");
+
+            }
+        );
+
+    });
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+const themeToggle =
+    document.getElementById("themeToggle");
+
+
+themeToggle.addEventListener(
+    "click",
+    function () {
+
+        document.body.classList.toggle("dark");
+
+        const darkMode =
+            document.body.classList.contains("dark");
+
+        if (darkMode) {
+
+            themeToggle.textContent = "☀️";
+
+            localStorage.setItem(
+                "theme",
+                "dark"
+            );
+
+        } else {
+
+            themeToggle.textContent = "🌙";
+
+            localStorage.setItem(
+                "theme",
+                "light"
+            );
+
+        }
+
+    }
+);
+
+
+/* Load saved theme */
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark");
+
+    themeToggle.textContent = "☀️";
+
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+const languageToggle =
+    document.getElementById("languageToggle");
+
+let currentLanguage =
+    localStorage.getItem("language") || "km";
+
+
+function changeLanguage(language) {
+
+    currentLanguage = language;
+
+    document
+        .querySelectorAll("[data-km]")
+        .forEach(function (element) {
+
+            element.innerHTML =
+                element.getAttribute(
+                    "data-" + language
+                );
+
+        });
+
+
+    if (language === "km") {
+
+        document.documentElement.lang = "km";
+
+        languageToggle.textContent =
+            "🇬🇧 EN";
+
+    } else {
+
+        document.documentElement.lang = "en";
+
+        languageToggle.textContent =
+            "🇰🇭 KH";
+
+    }
+
+    localStorage.setItem(
+        "language",
+        language
+    );
+}
+
+
+languageToggle.addEventListener(
+    "click",
+    function () {
+
+        if (currentLanguage === "km") {
+
+            changeLanguage("en");
+
+        } else {
+
+            changeLanguage("km");
+
+        }
+
+    }
+);
+
+
+/* Load saved language */
+
+changeLanguage(currentLanguage);
+
+
+/* =========================
+   EXERCISE ANSWER
+========================= */
+
+const answerButton =
+    document.getElementById("answerButton");
+
+const answer =
+    document.getElementById("answer");
+
+
+answerButton.addEventListener(
+    "click",
+    function () {
+
+        if (currentLanguage === "km") {
+
+            answer.textContent =
+                "ចម្លើយ៖ x = 6";
+
+        } else {
+
+            answer.textContent =
+                "Answer: x = 6";
+
+        }
+
+    }
+);
+
+
+/* =========================
+   COMING SOON
+========================= */
+
+function comingSoon() {
+
+    if (currentLanguage === "km") {
+
+        alert(
+            "មុខងារនេះនឹងមាននៅ Version បន្ទាប់។"
+        );
+
+    } else {
+
+        alert(
+            "This feature will be available in the next version."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   CALCULATOR
+========================= */
+
+function addToDisplay(value) {
+
+    document.getElementById(
+        "display"
+    ).value += value;
+
+}
+
+
+function clearDisplay() {
+
+    document.getElementById(
+        "display"
+    ).value = "";
+
+}
+
+
+function deleteLast() {
+
+    const display =
+        document.getElementById("display");
+
+    display.value =
+        display.value.slice(0, -1);
+
+}
+
+
+function calculate() {
+
+    const display =
+        document.getElementById("display");
+
+    const expression =
+        display.value;
+
+    if (!expression) {
+        return;
+    }
+
+    try {
+
+        /*
+         * This calculator is intended
+         * for basic arithmetic.
+         */
+
+        if (
+            !/^[0-9+\-*/().\s]+$/
+                .test(expression)
+        ) {
+
+            throw new Error(
+                "Invalid expression"
+            );
+
+        }
+
+        display.value =
+            Function(
+                "return (" +
+                expression +
+                ")"
+            )();
+
+    } catch {
+
+        display.value = "Error";
+
+    }
+
+}
+```
